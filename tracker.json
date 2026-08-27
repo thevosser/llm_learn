@@ -1,0 +1,65 @@
+{
+  "_comment": "This file is the memory of the whole project. The curator agent reads this every day to decide what to teach next, and updates it after each lesson. Keep it simple: just lists of topics and their status.",
+
+  "topics": [
+    {
+      "id": "cloud-providers",
+      "title": "Cloud providers compared (AWS, Azure, GCP, and smaller players)",
+      "category": "cloud-infra",
+      "status": "in_progress",
+      "requires": [],
+      "_comment_status": "status can be: open (not started), covered (done), in_progress (started but not finished)",
+      "_comment_progress": "lesson.md is written, but the interactive comparison toggle referenced in it is still a placeholder — not truly done until that's built and tried."
+    },
+    {
+      "id": "git-branching",
+      "title": "Git branching and pull requests",
+      "category": "dev-fundamentals",
+      "status": "open",
+      "requires": [],
+      "external_resource": "https://learngitbranching.js.org"
+    },
+    {
+      "id": "embeddings-vs-chat",
+      "title": "How embedding models work vs. chat models",
+      "category": "llm-mechanics",
+      "status": "open",
+      "requires": []
+    },
+    {
+      "id": "tool-use",
+      "title": "How LLM tool use / function calling works",
+      "category": "llm-mechanics",
+      "status": "open",
+      "requires": ["embeddings-vs-chat"]
+    },
+    {
+      "id": "agent-loops",
+      "title": "How agent loops work (the LLM-in-a-while-loop pattern)",
+      "category": "llm-mechanics",
+      "status": "open",
+      "requires": ["tool-use"]
+    },
+    {
+      "id": "image-generation",
+      "title": "How image generation models work",
+      "category": "llm-mechanics",
+      "status": "open",
+      "requires": []
+    },
+    {
+      "id": "multi-agent-orchestration",
+      "title": "Multi-agent orchestration patterns",
+      "category": "llm-mechanics",
+      "status": "open",
+      "requires": ["agent-loops"]
+    }
+  ],
+
+  "question_queue": [
+    {
+      "_comment": "Eric adds questions here whenever they come to mind. The curator checks this FIRST each run — if there's a question here, it becomes that day's lesson instead of the background-source pick.",
+      "example": "Delete this example object. Real questions go here as: {\"question\": \"...\", \"added_on\": \"YYYY-MM-DD\"}"
+    }
+  ]
+}

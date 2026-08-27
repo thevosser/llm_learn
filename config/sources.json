@@ -1,0 +1,26 @@
+{
+  "_comment": "This is the list of places the curator agent is allowed to look when the question_queue in tracker.json is empty and it needs to find something new to teach. Keeping this list short and curated on purpose, so the agent isn't crawling the whole internet, just a few trustworthy spots.",
+
+  "primary_ai_sources": [
+    "https://www.anthropic.com/news",
+    "https://openai.com/blog",
+    "https://blog.google/technology/ai/"
+  ],
+
+  "structured_courses": [
+    "https://ocw.mit.edu/search/?t=Artificial%20Intelligence"
+  ],
+
+  "dev_fundamentals": [
+    "https://learngitbranching.js.org"
+  ],
+
+  "topic_categories": [
+    "llm-mechanics",
+    "cloud-infra",
+    "dev-fundamentals",
+    "agent-tooling"
+  ],
+
+  "curation_notes": "When the question queue is empty, check the primary_ai_sources for anything genuinely new since the last run (a notable model release, a new technique getting real traction). Prefer filling an 'open' topic from tracker.json's topic list over inventing something totally new, unless something is clearly trending and worth adding as a new topic."
+}

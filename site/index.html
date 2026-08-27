@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Lesson</title>
+  <style>
+    /* Keeping styling simple and readable on purpose — this is a learning
+       tool, not a marketing site. Plain, calm, easy to read on a work
+       laptop without looking flashy. */
+    body {
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+    .hook {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+    #interactive-area {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+      background: #fafafa;
+    }
+    button {
+      background: #2d6a4f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { background: #245a41; }
+    textarea {
+      width: 100%;
+      font-family: "SF Mono", Consolas, monospace;
+      font-size: 14px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    #mark-covered {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- These get filled in by loadLesson() below -->
+  <h1 id="lesson-title">Loading...</h1>
+  <p class="hook" id="lesson-hook"></p>
+  <div id="lesson-body"></div>
+
+  <div id="interactive-area">
+    <p id="interactive-placeholder">Interactive content loads here.</p>
+  </div>
+
+  <button id="mark-covered">Mark as covered</button>
+
+  <script>
+    /*
+     * This is the whole "engine" of the site. It does three things:
+     *   1. Figures out which lesson to load (today's, by default)
+     *   2. Fetches that lesson's content and shows it
+     *   3. If the lesson is a "code" type, loads Pyodide so the visitor
+     *      can actually run and edit Python right on this page
+     *
+     * Every lesson lives in /lessons/YYYY-MM-DD-topic-name/lesson.md
+     * The top of that file (between the --- lines) is "frontmatter" —
+     * simple key: value metadata that tells this page how to render it.
+     */
+
+    // Step 1: figure out which lesson folder to load.
+    // For now this is hardcoded to today's example lesson for testing.
+    // Later, this can read a URL parameter or a "latest lesson" pointer
+    // file so the page always shows the newest one automatically.
+    const LESSON_FOLDER = "2026-08-27-cloud-providers";
+
+    async function loadLesson() {
+      // Fetch the raw markdown file for this lesson
+      const response = await fetch(`../lessons/${LESSON_FOLDER}/lesson.md`);
+      const rawText = await response.text();
+
+      // Split out the frontmatter (the metadata between the --- lines)
+      // from the actual lesson content below it.
+      const parts = rawText.split("---");
+      const frontmatterText = parts[1];
+      const bodyText = parts.slice(2).join("---");
+
+      // Turn the frontmatter text into a simple key/value object.
+      // Example line: "type: concept" becomes { type: "concept" }
+      const metadata = {};
+      frontmatterText.trim().split("\n").forEach(line => {
+        const [key, ...rest] = line.split(":");
+        metadata[key.trim()] = rest.join(":").trim().replace(/^"|"$/g, "");
+      });
+
+      // Fill in the title and hook line at the top of the page
+      document.getElementById("lesson-title").innerText = metadata.title;
+      document.getElementById("lesson-hook").innerText = metadata.hook;
+
+      // Very basic markdown-to-HTML: just handles headings and paragraphs.
+      // This keeps things simple and dependency-free for now — a real
+      // markdown library can swap in later without changing anything else.
+      const bodyHtml = bodyText
+        .split("\n")
+        .map(line => {
+          if (line.startsWith("## ")) return `<h2>${line.slice(3)}</h2>`;
+          if (line.trim() === "") return "";
+          if (line.includes("interactive.js renders here")) return "";
+          return `<p>${line}</p>`;
+        })
+        .join("\n");
+      document.getElementById("lesson-body").innerHTML = bodyHtml;
+
+      // Step 3: based on the lesson's "type", decide what goes in the
+      // interactive area. This is the "modular" part — adding a third
+      // type later just means adding another branch here.
+      if (metadata.type === "code") {
+        loadCodeInteractive();
+      } else if (metadata.type === "concept") {
+        loadConceptInteractive();
+      }
+    }
+
+    // Placeholder for concept-day interactivity (comparisons, toggles,
+    // quizzes). Today's example lesson is a concept lesson, so this is
+    // where that toggle would actually get built out next.
+    function loadConceptInteractive() {
+      document.getElementById("interactive-placeholder").innerText =
+        "(Concept-style interactive widget goes here — e.g. a toggle comparing providers by project size.)";
+    }
+
+    // For code-type lessons: load Pyodide from the CDN (not stored in
+    // this repo — see the earlier discussion on why) and give the
+    // visitor an editable code box that actually runs.
+    async function loadCodeInteractive() {
+      const area = document.getElementById("interactive-area");
+      area.innerHTML = `
+        <textarea id="code-box" rows="6">print("edit me and run!")</textarea>
+        <br><br>
+        <button id="run-code">Run</button>
+        <pre id="code-output"></pre>
+      `;
+
+      // Load the Pyodide script from the CDN, pinned to a specific
+      // version so it never silently changes on us.
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/pyodide/v0.28.0/full/pyodide.js";
+      document.head.appendChild(script);
+
+      script.onload = async () => {
+        const pyodide = await loadPyodide();
+        document.getElementById("run-code").onclick = async () => {
+          const code = document.getElementById("code-box").value;
+          try {
+            const result = await pyodide.runPythonAsync(code);
+            document.getElementById("code-output").innerText = result;
+          } catch (err) {
+            document.getElementById("code-output").innerText = "Error: " + err;
+          }
+        };
+      };
+    }
+
+    // Kick everything off once the page loads
+    loadLesson();
+  </script>
+
+</body>
+</html>
