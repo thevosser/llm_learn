@@ -1,0 +1,26 @@
+{
+  "type": "steps",
+  "prompt": "Watch a conversation grow against a small fixed context window (simulated at 4 \"slots\" for this example):",
+  "steps": [
+    {
+      "label": "Turn 1",
+      "content": "Window: [Msg 1]. One message in, plenty of room left. Everything sent so far fits easily."
+    },
+    {
+      "label": "Turn 2",
+      "content": "Window: [Msg 1] [Msg 2]. Every new turn resends the whole conversation so far, plus the new message — the app is doing that resending, not the model remembering."
+    },
+    {
+      "label": "Turn 3",
+      "content": "Window: [Msg 1] [Msg 2] [Msg 3]. Still fits — but notice the request is getting bigger (and more expensive) each turn, since the whole history goes along for the ride every time."
+    },
+    {
+      "label": "Turn 4",
+      "content": "Window: [Msg 1] [Msg 2] [Msg 3] [Msg 4]. The window is now full at this simulated 4-slot size."
+    },
+    {
+      "label": "Turn 5",
+      "content": "Window: [Msg 2] [Msg 3] [Msg 4] [Msg 5]. Msg 1 just got pushed out to make room. If Msg 1 contained something important — an instruction, a fact you told it — the model genuinely can't see it anymore. That's the 'it forgot what I said' moment, and it's a window-size problem, not a memory problem."
+    }
+  ]
+}

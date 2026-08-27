@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same request for JSON output, asked two different ways:",
+  "options": [
+    {
+      "label": "Prompt-only: \"Respond with only this JSON, nothing else\"",
+      "content": "Usually works. But it's an instruction the model is choosing to follow, not a guarantee — occasionally it adds a lead-in sentence, wraps the JSON in a markdown code fence, or trails off mid-object on an unusual input. Any of those breaks a plain json.loads() call, and it's the kind of failure that only shows up under real traffic, not in your first few tests."
+    },
+    {
+      "label": "Schema-enforced structured output",
+      "content": "The API constrains generation itself to match a schema you define — stray prose isn't a possible output, because the format isn't optional at that point. This is the difference between hoping the model complies and the response being mechanically guaranteed to parse. Worth the extra setup the moment something unattended is consuming the output."
+    }
+  ]
+}

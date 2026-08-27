@@ -48,6 +48,23 @@
     #mark-covered {
       margin-top: 30px;
     }
+    #lesson-nav {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-size: 14px;
+    }
+    #lesson-nav ul {
+      padding-left: 20px;
+      margin: 8px 0 0;
+    }
+    #lesson-nav li {
+      margin-bottom: 4px;
+    }
+    #toggle-buttons button {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -63,24 +80,68 @@
 
   <button id="mark-covered">Mark as covered</button>
 
+  <div id="lesson-nav"></div>
+
   <script>
     /*
-     * This is the whole "engine" of the site. It does three things:
-     *   1. Figures out which lesson to load (today's, by default)
-     *   2. Fetches that lesson's content and shows it
-     *   3. If the lesson is a "code" type, loads Pyodide so the visitor
-     *      can actually run and edit Python right on this page
+     * This is the whole "engine" of the site. It does four things:
+     *   1. Reads lessons/manifest.json to find which lessons exist, and
+     *      figures out which one to show (a ?lesson= URL param, or the
+     *      most recently added one by default)
+     *   2. Renders a plain "all lessons" list so every lesson is
+     *      actually reachable, not just whichever one loads by default
+     *   3. Fetches that lesson's content and shows it
+     *   4. If the lesson is a "code" type, loads Pyodide so the visitor
+     *      can actually run and edit Python right on this page; if it's
+     *      "concept", loads that lesson's interactive.json and renders
+     *      a toggle-compare or step-slider widget from it
      *
      * Every lesson lives in /lessons/YYYY-MM-DD-topic-name/lesson.md
      * The top of that file (between the --- lines) is "frontmatter" —
      * simple key: value metadata that tells this page how to render it.
      */
 
-    // Step 1: figure out which lesson folder to load.
-    // For now this is hardcoded to today's example lesson for testing.
-    // Later, this can read a URL parameter or a "latest lesson" pointer
-    // file so the page always shows the newest one automatically.
-    const LESSON_FOLDER = "2026-08-27-cloud-providers";
+    // Set by init() before loadLesson() ever runs.
+    let LESSON_FOLDER;
+
+    // Turns a folder name like "2026-08-27-cloud-providers" into a plain
+    // label like "Cloud Providers" for the nav list — pure string work,
+    // so building the list doesn't need an extra fetch per lesson just
+    // to find its title.
+    function folderToLabel(folder) {
+      const slug = folder.replace(/^\d{4}-\d{2}-\d{2}-/, "");
+      return slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    }
+
+    function renderNav(manifest) {
+      const nav = document.getElementById("lesson-nav");
+      if (!manifest.length) return;
+      const items = manifest.map(entry => {
+        const label = folderToLabel(entry.folder);
+        return entry.folder === LESSON_FOLDER
+          ? `<li><strong>${label}</strong> (current)</li>`
+          : `<li><a href="?lesson=${entry.folder}">${label}</a></li>`;
+      }).join("");
+      nav.innerHTML = `<strong>All lessons:</strong><ul>${items}</ul>`;
+    }
+
+    async function init() {
+      // manifest.json is just a flat list of lesson folders, in the
+      // order they were added — this is what makes "show me every
+      // lesson" and "show me the latest one" possible without the
+      // browser being able to list a directory (static hosting can't).
+      const manifestResponse = await fetch("lessons/manifest.json");
+      const manifest = manifestResponse.ok ? await manifestResponse.json() : [];
+      const knownFolders = manifest.map(entry => entry.folder);
+
+      const requestedFolder = new URLSearchParams(window.location.search).get("lesson");
+      LESSON_FOLDER = (requestedFolder && knownFolders.includes(requestedFolder))
+        ? requestedFolder
+        : knownFolders[knownFolders.length - 1];
+
+      renderNav(manifest);
+      loadLesson();
+    }
 
     async function loadLesson() {
       try {
@@ -175,12 +236,84 @@
       }
     }
 
-    // Placeholder for concept-day interactivity (comparisons, toggles,
-    // quizzes). Today's example lesson is a concept lesson, so this is
-    // where that toggle would actually get built out next.
-    function loadConceptInteractive() {
-      document.getElementById("interactive-placeholder").innerText =
-        "(Concept-style interactive widget goes here — e.g. a toggle comparing providers by project size.)";
+    // Concept-day interactivity. Every concept lesson's folder can have
+    // its own interactive.json describing a widget in one of two shapes
+    // (a two-option "toggle" comparison, or a "steps" slider through a
+    // sequence) — this reads that data and renders the matching widget,
+    // so no per-lesson JavaScript is ever needed, just data.
+    async function loadConceptInteractive() {
+      const area = document.getElementById("interactive-area");
+      try {
+        const response = await fetch(`lessons/${LESSON_FOLDER}/interactive.json`);
+        if (!response.ok) {
+          throw new Error(`no interactive.json for this lesson (HTTP ${response.status})`);
+        }
+        const data = await response.json();
+        if (data.type === "toggle") {
+          renderToggleWidget(area, data);
+        } else if (data.type === "steps") {
+          renderStepsWidget(area, data);
+        } else {
+          throw new Error(`unknown interactive type: ${data.type}`);
+        }
+      } catch (err) {
+        // This lesson doesn't have interactive.json yet (or it's
+        // malformed) - fall back to a plain placeholder instead of
+        // leaving the interactive area broken or empty.
+        area.innerHTML = `<p id="interactive-placeholder">Interactive content coming soon for this lesson.</p>`;
+      }
+    }
+
+    // Renders a two-option comparison: click a label, see that option's
+    // content. Used for anything shaped like "pick A or B and see how
+    // the reasoning differs."
+    function renderToggleWidget(area, data) {
+      area.innerHTML = `
+        <p>${data.prompt || ""}</p>
+        <div id="toggle-buttons"></div>
+        <p id="toggle-content"></p>
+      `;
+      const buttonsEl = document.getElementById("toggle-buttons");
+      const contentEl = document.getElementById("toggle-content");
+
+      function show(index) {
+        contentEl.innerText = data.options[index].content;
+        Array.from(buttonsEl.children).forEach((btn, i) => {
+          btn.style.opacity = i === index ? "1" : "0.6";
+        });
+      }
+
+      data.options.forEach((option, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = option.label;
+        btn.onclick = () => show(index);
+        buttonsEl.appendChild(btn);
+      });
+
+      show(0); // show the first option by default
+    }
+
+    // Renders a slider that steps through a sequence, showing each
+    // step's label and content as you drag. Used for anything shaped
+    // like "watch this progress through stages."
+    function renderStepsWidget(area, data) {
+      area.innerHTML = `
+        <p>${data.prompt || ""}</p>
+        <input type="range" id="steps-slider" min="0" max="${data.steps.length - 1}" value="0" style="width: 100%;">
+        <p id="steps-label" style="font-weight: bold; margin-top: 12px; margin-bottom: 4px;"></p>
+        <p id="steps-content"></p>
+      `;
+      const slider = document.getElementById("steps-slider");
+      const labelEl = document.getElementById("steps-label");
+      const contentEl = document.getElementById("steps-content");
+
+      function show(index) {
+        labelEl.innerText = data.steps[index].label;
+        contentEl.innerText = data.steps[index].content;
+      }
+
+      slider.oninput = () => show(Number(slider.value));
+      show(0); // show the first step by default
     }
 
     // For code-type lessons: load Pyodide from the CDN (not stored in
@@ -216,7 +349,7 @@
     }
 
     // Kick everything off once the page loads
-    loadLesson();
+    init();
   </script>
 
 </body>

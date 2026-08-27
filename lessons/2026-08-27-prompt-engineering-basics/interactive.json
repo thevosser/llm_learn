@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same underlying request, written two ways:",
+  "options": [
+    {
+      "label": "Vague: \"Summarize this\"",
+      "content": "Likely output: a paragraph of unpredictable length, in whatever tone the model defaults to, that you'll probably need to reformat or trim before using anywhere. Not wrong, exactly — just entirely up to the model's guess about what you meant by 'summarize.'"
+    },
+    {
+      "label": "Specific: \"Summarize this in 3 bullet points, each under 15 words\"",
+      "content": "Likely output: exactly 3 bullets, each short enough to scan instantly, ready to paste somewhere without editing. Nothing about the model got smarter between these two prompts — the only thing that changed is how much ambiguity you left for it to resolve on its own."
+    }
+  ]
+}

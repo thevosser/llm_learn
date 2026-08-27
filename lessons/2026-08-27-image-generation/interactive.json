@@ -1,0 +1,26 @@
+{
+  "type": "steps",
+  "prompt": "Drag through a simulated denoising sequence for the prompt \"a red bicycle leaning against a brick wall\":",
+  "steps": [
+    {
+      "label": "Step 0 — pure noise",
+      "content": "The canvas starts as random static — no structure at all. The model's text-embedding of the prompt is already computed and ready to steer every step from here, but at step 0 nothing has been shaped by it yet."
+    },
+    {
+      "label": "Step 1 — rough shapes",
+      "content": "The model makes its first pass at 'what would this look like slightly less noisy,' guided by the prompt's embedding. You'd see only vague blobs of color and contrast — maybe a rough dark mass where the wall will be, a rounder shape where the bicycle will end up. Nothing recognizable yet."
+    },
+    {
+      "label": "Step 2 — coarse structure",
+      "content": "Large-scale structure locks in: a horizontal-ish plane for the ground, a vertical mass for the wall, an outline suggesting two wheel-like circles. Colors are still muddy and imprecise, but the composition of the scene is now basically fixed for the remaining steps."
+    },
+    {
+      "label": "Step 3 — details emerge",
+      "content": "Texture and detail start resolving: individual bricks become distinguishable, the bicycle frame gets defined edges, red coloring concentrates specifically on the bicycle rather than bleeding across the image."
+    },
+    {
+      "label": "Step 4 — final image",
+      "content": "The last steps mostly sharpen fine detail — brick mortar lines, spoke reflections, shadow edges — rather than changing structure. This is why more steps past a certain point have diminishing returns: the big decisions were made several steps ago."
+    }
+  ]
+}

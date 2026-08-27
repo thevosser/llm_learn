@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same topic — \"tax deductions\" — framed two different ways:",
+  "options": [
+    {
+      "label": "\"Explain what a tax deduction is\"",
+      "content": "This is a chat-model job: generate new text that explains a concept. There's nothing to look up or compare — the model predicts token by token to produce an explanation. Output: language."
+    },
+    {
+      "label": "\"Find my notes about tax deductions\"",
+      "content": "This is an embeddings job: convert the query into a vector, then find which of your stored notes have vectors nearby in that space. No new text needs to be generated — this is a similarity search, not a conversation. Output: coordinates, compared by distance."
+    }
+  ]
+}

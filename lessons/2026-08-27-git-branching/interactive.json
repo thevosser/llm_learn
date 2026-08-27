@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same two diverging branches, same final content — pick how they get combined:",
+  "options": [
+    {
+      "label": "Merge",
+      "content": "Git finds the common ancestor commit and creates a new commit with TWO parents — one pointing at each branch's tip. The history keeps the honest shape of what happened: you can look at the graph later and see exactly where the fork occurred and when it was reconciled. The tradeoff is a messier-looking graph, especially with lots of branches merging over time."
+    },
+    {
+      "label": "Rebase",
+      "content": "Git takes your branch's commits and replays them one by one on top of the other branch's tip, as if you'd written them there in the first place. The result is a single straight line — clean, linear history. The tradeoff: the fact that a fork ever happened is gone from the history. If two people rebase commits others have already pulled, it can rewrite history out from under them, which is why 'never rebase a shared branch' is a common rule."
+    }
+  ]
+}

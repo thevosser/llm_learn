@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Pick a project size and see which providers actually fit:",
+  "options": [
+    {
+      "label": "Small personal project",
+      "content": "A DigitalOcean droplet, Railway, or Fly.io is the right call. You get one box (or one small service), a bill you can predict exactly, and you can have something live in an afternoon. You will never touch a fraction of what AWS/Azure/GCP offer here — which is exactly the point. Paying for that depth would mean paying in setup time and console complexity, not just money."
+    },
+    {
+      "label": "Enterprise system",
+      "content": "This is where AWS/Azure/GCP earn their complexity: fine-grained IAM permissions, compliance certifications, multi-region failover, audit logging, and the ability to provision thousands of servers on demand. A droplet-style provider has no equivalent to reach for when you need those — you'd be building it yourself. The console being intimidating is the cost of that depth actually being there when you need it."
+    }
+  ]
+}

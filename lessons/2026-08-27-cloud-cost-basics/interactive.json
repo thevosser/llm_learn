@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Pick a workload shape and see which billing model actually wins:",
+  "options": [
+    {
+      "label": "Steady, predictable workload",
+      "content": "Fixed-price wins. A droplet sized to your steady usage costs the same every month, with no surprises, and you're not paying a per-request premium for capacity you're using consistently anyway. Metered billing here just adds unpredictability with no real benefit — you already know what you need."
+    },
+    {
+      "label": "Spiky, unpredictable workload",
+      "content": "Metered billing wins. A fixed-price box would need to be sized for your worst-case spike to avoid falling over — meaning you'd pay for that peak capacity 24/7 even during quiet periods. Metered billing scales with actual usage: quiet periods cost little, spikes cost more only while they're happening."
+    }
+  ]
+}
