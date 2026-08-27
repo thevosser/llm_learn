@@ -15,16 +15,18 @@
       "id": "git-branching",
       "title": "Git branching and pull requests",
       "category": "dev-fundamentals",
-      "status": "open",
+      "status": "in_progress",
       "requires": [],
-      "external_resource": "https://learngitbranching.js.org"
+      "external_resource": "https://learngitbranching.js.org",
+      "_comment_progress": "lesson.md is written, but the merge-vs-rebase comparison it references is still a placeholder — same caveat as cloud-providers."
     },
     {
       "id": "embeddings-vs-chat",
       "title": "How embedding models work vs. chat models",
       "category": "llm-mechanics",
-      "status": "open",
-      "requires": []
+      "status": "in_progress",
+      "requires": [],
+      "_comment_progress": "lesson.md is written, but the chat-vs-search side-by-side it references is still a placeholder — same caveat as cloud-providers."
     },
     {
       "id": "tool-use",
