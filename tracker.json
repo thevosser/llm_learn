@@ -46,8 +46,9 @@
       "id": "image-generation",
       "title": "How image generation models work",
       "category": "llm-mechanics",
-      "status": "open",
-      "requires": []
+      "status": "in_progress",
+      "requires": [],
+      "_comment_progress": "lesson.md is written, but the denoising-steps slider it references is still a placeholder — same caveat as cloud-providers."
     },
     {
       "id": "multi-agent-orchestration",
@@ -55,6 +56,42 @@
       "category": "llm-mechanics",
       "status": "open",
       "requires": ["agent-loops"]
+    },
+    {
+      "id": "prompt-engineering-basics",
+      "title": "Prompt engineering fundamentals (specificity, few-shot, format)",
+      "category": "llm-mechanics",
+      "status": "in_progress",
+      "requires": [],
+      "_comment_progress": "lesson.md is written, but the vague-vs-specific prompt comparison it references is still a placeholder — same caveat as cloud-providers.",
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "context-windows-tokens",
+      "title": "What context windows are and why LLMs have no memory between requests",
+      "category": "llm-mechanics",
+      "status": "in_progress",
+      "requires": [],
+      "_comment_progress": "lesson.md is written, but the conversation-growth simulation it references is still a placeholder — same caveat as cloud-providers.",
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "cloud-cost-basics",
+      "title": "Fixed-price vs. metered/usage-based cloud billing",
+      "category": "cloud-infra",
+      "status": "in_progress",
+      "requires": [],
+      "_comment_progress": "lesson.md is written, but the workload-shape toggle it references is still a placeholder — same caveat as cloud-providers.",
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "structured-outputs",
+      "title": "Getting reliable structured (JSON) output from an LLM",
+      "category": "llm-mechanics",
+      "status": "in_progress",
+      "requires": [],
+      "_comment_progress": "lesson.md is written, but the prompt-only-vs-schema-enforced comparison it references is still a placeholder — same caveat as cloud-providers.",
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
     }
   ],
 
