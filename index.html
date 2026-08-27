@@ -123,16 +123,44 @@
       document.getElementById("lesson-title").innerText = metadata.title;
       document.getElementById("lesson-hook").innerText = metadata.hook;
 
-      // Very basic markdown-to-HTML: just handles headings and paragraphs.
-      // This keeps things simple and dependency-free for now — a real
-      // markdown library can swap in later without changing anything else.
+      // Very basic markdown-to-HTML: headings, paragraphs, simple lists,
+      // and **bold**. Still intentionally minimal — a real markdown
+      // library can swap in later without changing anything else.
+      //
+      // The tricky part: markdown paragraphs are usually "soft-wrapped" —
+      // one sentence spread across several lines with plain newlines, and
+      // a *blank* line is what actually marks a new paragraph. Splitting
+      // on every newline (the old approach) turned each wrapped line into
+      // its own paragraph, which is why lessons rendered as choppy
+      // one-line fragments. Fixing that means grouping by blank-line-
+      // separated blocks first, so wrapped lines get joined back into one
+      // paragraph — except list-item lines ("1. ", "- "), which should
+      // each stay on their own line within that block.
+      const applyInline = text => text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
       const bodyHtml = bodyText
-        .split("\n")
-        .map(line => {
-          if (line.startsWith("## ")) return `<h2>${line.slice(3)}</h2>`;
-          if (line.trim() === "") return "";
-          if (line.includes("interactive.js renders here")) return "";
-          return `<p>${line}</p>`;
+        .split(/\n\s*\n/)
+        .map(block => {
+          const trimmed = block.trim();
+          if (trimmed === "" || trimmed.includes("interactive.js renders here")) {
+            return "";
+          }
+          if (trimmed.startsWith("## ")) {
+            return `<h2>${applyInline(trimmed.slice(3))}</h2>`;
+          }
+          const pieces = [];
+          let current = "";
+          trimmed.split("\n").forEach(line => {
+            const text = line.trim();
+            const isListItem = /^(\d+\.|[-*])\s/.test(text);
+            if (isListItem) {
+              if (current) pieces.push(current);
+              current = text;
+            } else {
+              current = current ? `${current} ${text}` : text;
+            }
+          });
+          if (current) pieces.push(current);
+          return pieces.map(p => `<p>${applyInline(p)}</p>`).join("\n");
         })
         .join("\n");
       document.getElementById("lesson-body").innerHTML = bodyHtml;
