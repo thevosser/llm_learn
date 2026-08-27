@@ -84,7 +84,7 @@
 
     async function loadLesson() {
       // Fetch the raw markdown file for this lesson
-      const response = await fetch(`../lessons/${LESSON_FOLDER}/lesson.md`);
+      const response = await fetch(`lessons/${LESSON_FOLDER}/lesson.md`);
       const rawText = await response.text();
 
       // Split out the frontmatter (the metadata between the --- lines)
