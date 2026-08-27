@@ -83,8 +83,26 @@
     const LESSON_FOLDER = "2026-08-27-cloud-providers";
 
     async function loadLesson() {
+      try {
+        await loadLessonUnsafe();
+      } catch (err) {
+        // Without this, a failed fetch (wrong path, 404, network hiccup)
+        // leaves the page stuck on "Loading..." forever with no clue why.
+        // Surfacing the actual error makes that failure diagnosable
+        // instead of silent.
+        document.getElementById("lesson-title").innerText = "Couldn't load this lesson";
+        document.getElementById("lesson-hook").innerText = "";
+        document.getElementById("lesson-body").innerHTML =
+          `<p>${err.message}</p><p>Expected to find: lessons/${LESSON_FOLDER}/lesson.md</p>`;
+      }
+    }
+
+    async function loadLessonUnsafe() {
       // Fetch the raw markdown file for this lesson
       const response = await fetch(`lessons/${LESSON_FOLDER}/lesson.md`);
+      if (!response.ok) {
+        throw new Error(`Fetch failed: HTTP ${response.status} ${response.statusText}`);
+      }
       const rawText = await response.text();
 
       // Split out the frontmatter (the metadata between the --- lines)
