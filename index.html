@@ -197,8 +197,16 @@
       // separated blocks first, so wrapped lines get joined back into one
       // paragraph — except list-item lines ("1. ", "- "), which should
       // each stay on their own line within that block.
+      // For a code-type lesson, a fenced ```code block``` in the markdown
+      // is the starter snippet meant to load into the editable box below
+      // — pull it out here (and drop it from the rendered prose, so it
+      // isn't shown twice) before the paragraph pass runs.
+      const codeFenceMatch = bodyText.match(/```[a-zA-Z]*\n([\s\S]*?)```/);
+      const starterCode = codeFenceMatch ? codeFenceMatch[1].replace(/\n$/, "") : null;
+      const proseText = codeFenceMatch ? bodyText.replace(codeFenceMatch[0], "") : bodyText;
+
       const applyInline = text => text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-      const bodyHtml = bodyText
+      const bodyHtml = proseText
         .split(/\n\s*\n/)
         .map(block => {
           const trimmed = block.trim();
@@ -230,7 +238,7 @@
       // interactive area. This is the "modular" part — adding a third
       // type later just means adding another branch here.
       if (metadata.type === "code") {
-        loadCodeInteractive();
+        loadCodeInteractive(starterCode);
       } else if (metadata.type === "concept") {
         loadConceptInteractive();
       }
@@ -316,13 +324,25 @@
       show(0); // show the first step by default
     }
 
+    // Escapes text being inserted between HTML tags (as opposed to into
+    // an attribute) - needed because the starter code is dropped
+    // straight into a <textarea>...</textarea> as raw markup, so an
+    // unescaped "<" or "&" in someone's Python (comparisons, "a && b"
+    // typos, etc.) would otherwise corrupt the box's contents.
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
     // For code-type lessons: load Pyodide from the CDN (not stored in
     // this repo — see the earlier discussion on why) and give the
-    // visitor an editable code box that actually runs.
-    async function loadCodeInteractive() {
+    // visitor an editable code box that actually runs. starterCode
+    // comes from the lesson's own fenced code block (see loadLessonUnsafe)
+    // so each code lesson opens with its own snippet, not a generic one.
+    async function loadCodeInteractive(starterCode) {
       const area = document.getElementById("interactive-area");
+      const initialCode = starterCode || 'print("edit me and run!")';
       area.innerHTML = `
-        <textarea id="code-box" rows="6">print("edit me and run!")</textarea>
+        <textarea id="code-box" rows="10">${escapeHtml(initialCode)}</textarea>
         <br><br>
         <button id="run-code">Run</button>
         <pre id="code-output"></pre>

@@ -6,5 +6,6 @@
   { "folder": "2026-08-27-prompt-engineering-basics" },
   { "folder": "2026-08-27-context-windows-tokens" },
   { "folder": "2026-08-27-cloud-cost-basics" },
-  { "folder": "2026-08-27-structured-outputs" }
+  { "folder": "2026-08-27-structured-outputs" },
+  { "folder": "2026-08-27-tokenizer-playground" }
 ]
