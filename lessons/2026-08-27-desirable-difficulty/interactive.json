@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Teaching the same code concept, two ways:",
+  "options": [
+    {
+      "label": "A complete, correct example to read",
+      "content": "Every line already works. You can follow the logic, nod along, and understand the explanation - all without ever finding out whether you could have produced or fixed any of it yourself. It feels efficient and successful in the moment, but nothing forced you to actually engage past the level of \"this makes sense as I read it,\" which is the exact fluency illusion from the active-vs-passive lesson."
+    },
+    {
+      "label": "A snippet with something broken, left for you to fix",
+      "content": "You have to actually reason about what the code is trying to do, notice where it doesn't, form a real hypothesis about the fix, and test it. It's slower and can be frustrating in a way the clean example never is - but that friction is exactly what forces genuine engagement instead of passive following, which is what makes the difference show up later, when you need to write or debug something like it without an example in front of you at all."
+    }
+  ]
+}

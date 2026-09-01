@@ -108,6 +108,46 @@
       "status": "covered",
       "requires": [],
       "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "learning-styles-myth",
+      "title": "The 'learning styles' myth vs. what actually improves retention",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27 - new category, requested to inform how this project itself teaches."
+    },
+    {
+      "id": "active-vs-passive-learning",
+      "title": "Active vs. passive learning and the fluency illusion",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "cognitive-load-and-bite-sized-learning",
+      "title": "Cognitive load theory and why short sessions beat long ones",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "retrieval-practice-and-forgetting-curve",
+      "title": "The forgetting curve, retrieval practice, and spaced review",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27 - directly proposes a future project feature (spaced review of covered lessons)."
+    },
+    {
+      "id": "desirable-difficulty",
+      "title": "Desirable difficulty: why broken starter code beats a clean example",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
     }
   ],
 

@@ -12,5 +12,10 @@
   { "folder": "2026-08-27-agent-loops" },
   { "folder": "2026-08-27-multi-agent-orchestration" },
   { "folder": "2026-08-27-environment-variables-and-secrets" },
-  { "folder": "2026-08-27-what-is-an-api" }
+  { "folder": "2026-08-27-what-is-an-api" },
+  { "folder": "2026-08-27-learning-styles-myth" },
+  { "folder": "2026-08-27-active-vs-passive-learning" },
+  { "folder": "2026-08-27-cognitive-load-and-bite-sized-learning" },
+  { "folder": "2026-08-27-retrieval-practice-and-forgetting-curve" },
+  { "folder": "2026-08-27-desirable-difficulty" }
 ]

@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "The same 8 related concepts, covered two different ways:",
+  "options": [
+    {
+      "label": "One 2-hour session, all 8 concepts",
+      "content": "Concepts 1-2 land fine while working memory still has room. By concept 4 or 5, new material is competing with everything still being actively juggled from earlier, and comprehension doesn't gently decline - it falls off sharply. The session isn't just failing to add value past that point; the overload actively crowds out consolidation of the earlier concepts too, since working memory never gets a break to hand anything off to longer-term memory."
+    },
+    {
+      "label": "Eight 15-minute sessions, one concept each",
+      "content": "Each session stays comfortably within working memory's capacity, so there's room to actually engage with the one idea instead of just holding it in a queue behind others. The gap between sessions also acts as a break that lets each idea get consolidated before the next one arrives. Same total content, same total time - the difference is never overloading the same three-to-five-item buffer that a long session runs straight through."
+    }
+  ]
+}

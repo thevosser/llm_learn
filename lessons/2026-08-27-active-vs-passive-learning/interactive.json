@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same topic, two ways of spending 15 minutes with it:",
+  "options": [
+    {
+      "label": "Watch a tutorial video",
+      "content": "You follow along easily, everything makes sense as it's explained, and you finish feeling like you get it. That feeling is largely the fluency illusion - following someone else's explanation smoothly and being able to reproduce or apply the idea yourself are different skills, and this only exercises the first one. Close the video and try to explain it cold, and the gap often shows up immediately."
+    },
+    {
+      "label": "Edit and run real code, or answer from memory",
+      "content": "It feels slower and more effortful - you might get it wrong, have to debug, or blank on an answer you thought you knew. That friction is the point: it surfaces exactly where your understanding is shaky while you still have the chance to fix it, instead of discovering the gap later when it actually matters. The discomfort in the moment is doing the work, not getting in the way of it."
+    }
+  ]
+}

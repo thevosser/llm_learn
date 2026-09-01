@@ -1,0 +1,26 @@
+{
+  "type": "steps",
+  "prompt": "Drag through what happens to retention of something you learned today, with one well-timed review along the way:",
+  "steps": [
+    {
+      "label": "Right after learning it",
+      "content": "Retention is near its peak - you can recall it easily. This is also the point where it feels safest to assume it's \"learned\" and move on, which is exactly the trap: this feeling doesn't predict how much will still be there in a few days."
+    },
+    {
+      "label": "1 day later, no review",
+      "content": "A significant chunk is already gone - this is the steepest part of Ebbinghaus's forgetting curve. Not because anything went wrong; this is the default trajectory for anything encountered once and never revisited."
+    },
+    {
+      "label": "1 week later, no review",
+      "content": "Most of what wasn't reinforced has faded well below what's practically usable. This is roughly where a lot of \"I learned this once\" knowledge quietly ends up - technically encountered, functionally gone."
+    },
+    {
+      "label": "The intervention: one quick review, timed right",
+      "content": "A short retrieval-practice check right around the point retention was about to drop off - not a full re-read, just actively trying to recall it - resets the curve. Critically, the NEW curve after this review decays more slowly than the first one did."
+    },
+    {
+      "label": "After a second well-timed review",
+      "content": "Each subsequent review flattens the curve further, and the gap before the next necessary review gets longer. This is the actual mechanism behind spaced-repetition systems: not reviewing more, but reviewing at the specific point it's about to be needed, and letting that point drift later each time."
+    }
+  ]
+}

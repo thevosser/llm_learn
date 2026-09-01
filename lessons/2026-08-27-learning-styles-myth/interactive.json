@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Two ways to decide how to present the same lesson:",
+  "options": [
+    {
+      "label": "Match the \"learning style\"",
+      "content": "Ask whether someone identifies as a visual, auditory, or kinesthetic learner, then present the material in that matching format - a diagram for the visual learner, a narrated explanation for the auditory one. This feels intuitive and personalized. Tested directly against outcomes (not just preference or comfort), it has not reliably shown the predicted effect: matching format to stated style doesn't produce better retention than any other format would have."
+    },
+    {
+      "label": "Match the method",
+      "content": "Ignore stated style entirely and ask instead: does this require the learner to actively retrieve or produce something, rather than passively receive it? Is it spaced out rather than crammed? This isn't about anyone's preference - retrieval practice and spacing show up as effective across people who'd describe their own \"style\" completely differently from each other. It's less personalized-feeling and more reliably effective."
+    }
+  ]
+}
