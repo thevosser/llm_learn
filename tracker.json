@@ -29,7 +29,7 @@
       "id": "tool-use",
       "title": "How LLM tool use / function calling works",
       "category": "llm-mechanics",
-      "status": "open",
+      "status": "covered",
       "requires": ["embeddings-vs-chat"]
     },
     {

@@ -38,6 +38,11 @@
       font-size: 14px;
     }
     button:hover { background: #245a41; }
+    button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+    button:disabled:hover { background: #2d6a4f; }
     textarea {
       width: 100%;
       font-family: "SF Mono", Consolas, monospace;
@@ -118,11 +123,67 @@
       if (!manifest.length) return;
       const items = manifest.map(entry => {
         const label = folderToLabel(entry.folder);
+        const check = isCovered(entry.folder) ? "✓ " : "";
         return entry.folder === LESSON_FOLDER
-          ? `<li><strong>${label}</strong> (current)</li>`
-          : `<li><a href="?lesson=${entry.folder}">${label}</a></li>`;
+          ? `<li>${check}<strong>${label}</strong> (current)</li>`
+          : `<li>${check}<a href="?lesson=${entry.folder}">${label}</a></li>`;
       }).join("");
       nav.innerHTML = `<strong>All lessons:</strong><ul>${items}</ul>`;
+    }
+
+    // "Covered" here is Eric's own personal record of which lessons he's
+    // actually been through, kept in this browser's localStorage - not
+    // the same thing as tracker.json's status, which is the curator's
+    // record of what's been built/is ready to teach. Doing this with a
+    // client-side GitHub write token instead would mean anyone visiting
+    // this public site could extract that token and push to the repo,
+    // so localStorage (per-device, no credentials) is the right call
+    // for what's really a personal "I've seen this" checkbox.
+    const COVERED_STORAGE_KEY = "coveredLessons";
+
+    function getCoveredLessons() {
+      try {
+        return JSON.parse(localStorage.getItem(COVERED_STORAGE_KEY) || "[]");
+      } catch (err) {
+        // Private browsing, disabled storage, etc. - just behave as if
+        // nothing's been marked yet instead of breaking the page.
+        return [];
+      }
+    }
+
+    function isCovered(folder) {
+      return getCoveredLessons().includes(folder);
+    }
+
+    function markCovered(folder) {
+      const covered = getCoveredLessons();
+      if (!covered.includes(folder)) {
+        covered.push(folder);
+        try {
+          localStorage.setItem(COVERED_STORAGE_KEY, JSON.stringify(covered));
+        } catch (err) {
+          // Same as above - fail quietly rather than breaking the page.
+        }
+      }
+    }
+
+    function setupMarkCoveredButton(manifest) {
+      const btn = document.getElementById("mark-covered");
+      function refreshButton() {
+        if (isCovered(LESSON_FOLDER)) {
+          btn.innerText = "✓ Covered";
+          btn.disabled = true;
+        } else {
+          btn.innerText = "Mark as covered";
+          btn.disabled = false;
+        }
+      }
+      btn.onclick = () => {
+        markCovered(LESSON_FOLDER);
+        refreshButton();
+        renderNav(manifest); // so the checkmark shows up in the list too
+      };
+      refreshButton();
     }
 
     async function init() {
@@ -140,6 +201,7 @@
         : knownFolders[knownFolders.length - 1];
 
       renderNav(manifest);
+      setupMarkCoveredButton(manifest);
       loadLesson();
     }
 

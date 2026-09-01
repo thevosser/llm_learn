@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same question, asked of a model with and without a weather tool available:",
+  "options": [
+    {
+      "label": "Without tools",
+      "content": "The model has no way to know current conditions anywhere — its knowledge comes entirely from training data with a cutoff date, and \"right now\" isn't in there. Best case, it tells you it can't know that. Worst case, it guesses something plausible-sounding and states it with total confidence, because nothing in how it generates text distinguishes a real fact from a fluent guess."
+    },
+    {
+      "label": "With a get_weather tool",
+      "content": "The model recognizes this question matches a tool it has: it writes a structured request like {\"tool\": \"get_weather\", \"city\": \"Austin\"} instead of a text answer. Your code actually calls a real weather API, gets back real current data, and sends that result to the model as its next input. Only then does the model write an answer — and this time it's grounded in a real number your code fetched, not a guess."
+    }
+  ]
+}
