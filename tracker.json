@@ -36,7 +36,7 @@
       "id": "agent-loops",
       "title": "How agent loops work (the LLM-in-a-while-loop pattern)",
       "category": "llm-mechanics",
-      "status": "open",
+      "status": "covered",
       "requires": ["tool-use"]
     },
     {
@@ -50,7 +50,7 @@
       "id": "multi-agent-orchestration",
       "title": "Multi-agent orchestration patterns",
       "category": "llm-mechanics",
-      "status": "open",
+      "status": "covered",
       "requires": ["agent-loops"]
     },
     {
@@ -92,6 +92,22 @@
       "status": "covered",
       "requires": ["context-windows-tokens"],
       "_comment_added": "Added manually 2026-08-27 - the first type: code lesson, written specifically to test the Pyodide code-execution path for real."
+    },
+    {
+      "id": "environment-variables-and-secrets",
+      "title": "Why secrets don't belong in your code (env vars vs. hardcoding)",
+      "category": "dev-fundamentals",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "what-is-an-api",
+      "title": "What 'calling an API' actually means vs. calling a local function",
+      "category": "dev-fundamentals",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
     }
   ],
 

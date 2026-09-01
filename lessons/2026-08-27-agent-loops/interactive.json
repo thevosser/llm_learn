@@ -1,0 +1,22 @@
+{
+  "type": "steps",
+  "prompt": "Question: \"What's the weather in the capital of France, and should I bring an umbrella tomorrow?\" — step through the loop:",
+  "steps": [
+    {
+      "label": "Turn 1 — the question arrives",
+      "content": "The model gets the question plus its tool list (get_capital, get_weather). It has no capital city or weather data yet, so it can't answer directly. It decides to call get_capital(country=\"France\")."
+    },
+    {
+      "label": "Turn 2 — first tool result comes back",
+      "content": "Your code ran get_capital for real, got \"Paris,\" and added that result to the conversation. The model is called again with everything so far. Still no weather data — it decides to call get_weather(city=\"Paris\")."
+    },
+    {
+      "label": "Turn 3 — second tool result comes back",
+      "content": "Your code ran get_weather(\"Paris\") for real, got back something like \"60% chance of rain tomorrow.\" That result is added to the conversation. The model is called again with the full history: the question, both tool calls, and both real results."
+    },
+    {
+      "label": "Turn 4 — loop exits",
+      "content": "This time the model has everything it needs. Instead of another tool call, it writes a plain-text answer: \"Paris is the capital, and yes — there's a 60% chance of rain tomorrow, so bring an umbrella.\" No tool request means the loop stops here and that answer goes back to you."
+    }
+  ]
+}

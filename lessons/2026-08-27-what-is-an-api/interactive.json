@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same task — \"get today's weather\" — two ways:",
+  "options": [
+    {
+      "label": "Calling your own function",
+      "content": "get_weather() runs in the same process, same memory, effectively instantly. You wrote every line of it, so if it's wrong, it's a bug in your own code. There's no network involved, so there's no way for it to fail because of a dropped connection, a rate limit, or bad authentication - those failure modes simply don't exist for a local function call."
+    },
+    {
+      "label": "Calling a weather API",
+      "content": "A request goes out over the network - an HTTP GET to some URL, usually with an API key attached to prove you're allowed to ask. It travels to a server you don't control, gets processed by code you've never seen, and a response travels back the same way, formatted however that API decided to format it. This round trip can fail in ways a local function never could: the network drops, their server is down, you've hit a rate limit, or the key is wrong or expired - none of which is a bug in your code."
+    }
+  ]
+}

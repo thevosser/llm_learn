@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same script, two ways of getting the API key in:",
+  "options": [
+    {
+      "label": "Hardcoded in the file",
+      "content": "API_KEY = \"sk-abc123...\" sits directly in the source file. It works instantly, but the moment this file is committed, that value is in git history forever - deleting the line in a later commit doesn't remove it from the earlier one. If this repo is ever made public, shared, or forked, the key goes with it. The only real fix after that point is revoking the key entirely, not editing the file."
+    },
+    {
+      "label": "Environment variable",
+      "content": "The code reads API_KEY = os.environ[\"API_KEY\"] - no actual value anywhere in the file. The real value lives in a .env file kept out of git (via .gitignore) or a platform's secret manager, injected only at runtime. The committed code contains nothing sensitive at all, the exact same script works across machines with different keys, and rotating a leaked key means changing one value somewhere - not touching the code."
+    }
+  ]
+}

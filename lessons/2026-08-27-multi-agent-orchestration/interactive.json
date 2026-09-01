@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Job: research three separate topics and write one combined summary.",
+  "options": [
+    {
+      "label": "Single agent loop",
+      "content": "One loop does all three research steps itself: call a search tool for topic 1, read results, call again for topic 2, read those results, call again for topic 3, read those, then write the summary. Every single search result from all three topics stays in that one growing conversation the whole time — by the third topic, the model is carrying the full text of topic 1's and 2's search results too, whether or not it still needs them."
+    },
+    {
+      "label": "Coordinator + 3 sub-agents",
+      "content": "A coordinator delegates \"research topic 1,\" \"research topic 2,\" and \"research topic 3\" to three separate agent loops. Each sub-agent has its own clean context — it only ever sees its own topic's search results, not the other two. When a sub-agent finishes, it sends back just a short summary. The coordinator's context only ever holds three short summaries, never the raw search results from any of them — at the cost of running four agent loops instead of one."
+    }
+  ]
+}

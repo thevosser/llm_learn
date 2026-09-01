@@ -8,5 +8,9 @@
   { "folder": "2026-08-27-cloud-cost-basics" },
   { "folder": "2026-08-27-structured-outputs" },
   { "folder": "2026-08-27-tokenizer-playground" },
-  { "folder": "2026-08-27-tool-use" }
+  { "folder": "2026-08-27-tool-use" },
+  { "folder": "2026-08-27-agent-loops" },
+  { "folder": "2026-08-27-multi-agent-orchestration" },
+  { "folder": "2026-08-27-environment-variables-and-secrets" },
+  { "folder": "2026-08-27-what-is-an-api" }
 ]
