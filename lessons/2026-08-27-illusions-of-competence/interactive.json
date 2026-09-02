@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same material, right after studying it — two different measurements of \"do I know this\":",
+  "options": [
+    {
+      "label": "How confident you feel after rereading",
+      "content": "High. The material feels familiar, the explanation made sense as you followed it, nothing felt confusing. This confidence is real, but it's measuring fluency - how smoothly the material processed the second time you saw it - which is a different thing from whether you could produce it yourself without it in front of you."
+    },
+    {
+      "label": "How you'd actually score, closed-book, right now",
+      "content": "Often noticeably lower than the confidence predicted. Without the material in front of you, gaps show up that rereading never surfaced - partial recall, details that seemed \"obviously\" understood but can't actually be reconstructed. This is the real measurement; the confidence from rereading was never a reliable stand-in for it."
+    }
+  ]
+}

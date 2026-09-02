@@ -1,0 +1,26 @@
+{
+  "type": "steps",
+  "prompt": "Same prompt — \"write an opening line for a story about a lighthouse\" — drag through increasing temperature:",
+  "steps": [
+    {
+      "label": "Temperature 0.0",
+      "content": "Always picks the single highest-probability token. Run this exact prompt twice and you'll typically get the identical (or near-identical) line both times - something safe and common, like \"The lighthouse had stood on the cliff for a hundred years.\" No surprises, no variety."
+    },
+    {
+      "label": "Temperature 0.3",
+      "content": "Mostly the same high-probability choices, with occasional small variation creeping in. Still leans toward familiar, expected phrasing - a light touch of variety, not a different kind of output."
+    },
+    {
+      "label": "Temperature 0.7",
+      "content": "A commonly used default. Noticeably more varied word choice and phrasing between runs - you'd start seeing genuinely different opening lines each time, most of them still coherent and usable."
+    },
+    {
+      "label": "Temperature 1.2",
+      "content": "Lower-probability tokens get picked much more often now. Output gets more surprising and creative, but coherence starts becoming inconsistent - some runs produce something striking, others start to ramble or lose the thread."
+    },
+    {
+      "label": "Temperature 2.0",
+      "content": "The distribution is nearly flat - unlikely tokens get picked about as often as likely ones. Output is frequently incoherent at this point: words and phrases with little relation to each other or to \"lighthouse\" at all. This isn't \"maximum creativity,\" it's mostly noise."
+    }
+  ]
+}

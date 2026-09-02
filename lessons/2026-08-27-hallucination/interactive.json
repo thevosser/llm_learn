@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Two kinds of questions, same model, same confident tone in the answer either way:",
+  "options": [
+    {
+      "label": "Well-represented in training data",
+      "content": "\"What year did the Berlin Wall fall?\" - this fact appears constantly, consistently, across huge amounts of training text. The most plausible continuation and the true answer are the same thing here, so the model's confident-sounding answer (1989) is also correct. This is the common case, and it's exactly why hallucination doesn't feel like a constant problem in everyday use."
+    },
+    {
+      "label": "Obscure or fabricated-sounding",
+      "content": "\"What's the ISBN of [a real but obscure self-published book], and who wrote the foreword?\" - if this specific detail was barely or never represented in training data, the model still produces its most plausible-sounding guess, delivered with the exact same fluent, confident tone as the correct answer above. Nothing in how it's phrased signals \"I'm actually guessing here\" - that distinction was never part of the generation process to begin with."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same short block of Python code, viewed two different ways:",
+  "options": [
+    {
+      "label": "Beginner's view",
+      "content": "for, i, in, range, (, len, (, items, ), ), :, if, items, [, i, ], is, None, - a long sequence of individual symbols and keywords, each one needing to be held onto and tracked separately just to figure out what the block does overall. This alone can bump against the working-memory limit before the beginner has even gotten to what the code is FOR."
+    },
+    {
+      "label": "Expert's view",
+      "content": "\"a loop over the list with a None-guard inside it\" - one single recognized chunk, instantly. The individual keywords and symbols didn't get faster to read one by one; years of exposure collapsed the whole familiar pattern into one recognizable unit, freeing up the working-memory slots a beginner is still spending just to parse the syntax."
+    }
+  ]
+}

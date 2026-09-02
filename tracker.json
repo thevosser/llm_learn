@@ -148,6 +148,86 @@
       "status": "covered",
       "requires": [],
       "_comment_added": "Added manually 2026-08-27, not part of the original seeded list."
+    },
+    {
+      "id": "temperature-and-sampling",
+      "title": "Temperature and sampling: the randomness dial on generation",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "hallucination",
+      "title": "Why hallucination happens mechanically, not as a 'bug'",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "retrieval-augmented-generation",
+      "title": "RAG: combining embeddings-based search with chat generation",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["embeddings-vs-chat"],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "fine-tuning-vs-prompting",
+      "title": "Fine-tuning vs. prompting: two ways to change model behavior",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "prompt-injection",
+      "title": "Prompt injection: when untrusted content acts like an instruction",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27 - directly relevant to this project's own future curator agent fetching external URLs."
+    },
+    {
+      "id": "interleaving-vs-blocked-practice",
+      "title": "Interleaved vs. blocked practice",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27 - second argument (alongside spaced review) for a future review feature."
+    },
+    {
+      "id": "illusions-of-competence",
+      "title": "Illusions of competence: fluency vs. actual retrievable knowledge",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "the-generation-effect",
+      "title": "The generation effect: guessing before being told the answer",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "elaborative-interrogation",
+      "title": "Elaborative interrogation: asking 'why is that true?'",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
+    },
+    {
+      "id": "chunking-and-expertise",
+      "title": "Chunking: why experts hold more in working memory",
+      "category": "learning-science",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-08-27 - cross-references tokenizer-playground deliberately."
     }
   ],
 

@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Goal: consistent, correctly-formatted JSON output on every request.",
+  "options": [
+    {
+      "label": "Prompting",
+      "content": "Write clear instructions and a schema in the request itself (or use schema-enforced structured output). Costs nothing upfront, works on the very next request, and if it's not quite right you just edit the prompt and try again immediately. This is where almost every case should start - and structured-output enforcement alone solves this specific goal completely without needing anything more."
+    },
+    {
+      "label": "Fine-tuning",
+      "content": "Collect hundreds or thousands of example question/correct-JSON pairs, run an actual training job to adjust the model's weights, and pay for that training run. The model now defaults to this format without needing the instruction repeated - but if the format needs a small change later, that's a new training run, not a one-line edit, and you needed a real dataset just to get started."
+    }
+  ]
+}

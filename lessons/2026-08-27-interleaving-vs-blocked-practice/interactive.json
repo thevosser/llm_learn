@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Practicing 4 related problem types (A, B, C, D) - same total number of problems, two orderings:",
+  "options": [
+    {
+      "label": "Blocked: AAAA BBBB CCCC DDDD",
+      "content": "Performance during practice looks great - by the third or fourth A in a row, you're fast and accurate, because you already know it's an A problem and can lean on the method from the previous one. That smoothness is misleading: you never had to practice recognizing WHICH type you were looking at, only executing a method you were already told applies. On a later mixed test, that recognition skill is exactly what's missing."
+    },
+    {
+      "label": "Interleaved: ABCD BDAC CADB",
+      "content": "Performance during practice looks worse - more mistakes, more hesitation, because every single problem forces you to first figure out which type it even is before you can solve it. That extra step, repeated dozens of times, is real practice at the actual skill a mixed test requires. It feels like you're doing worse in the moment; the delayed-test results usually say otherwise."
+    }
+  ]
+}

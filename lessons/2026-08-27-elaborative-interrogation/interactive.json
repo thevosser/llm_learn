@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Fact: \"Octopuses have three hearts.\" — two ways of taking that in:",
+  "options": [
+    {
+      "label": "Read it and move on",
+      "content": "The fact registers, feels reasonable, and you continue to the next sentence. It's now stored as roughly one isolated point in memory - accurate, but with no built connections leading back to it, and no reason it would be easier to recall later than any other single sentence you skimmed."
+    },
+    {
+      "label": "Ask and answer \"why is that true?\"",
+      "content": "You work out (or look up) that two hearts pump blood to the gills, and a third pumps it to the rest of the body - and that this connects to octopuses using blue, copper-based blood instead of iron-based blood, which carries oxygen less efficiently and needs the extra pumping help. That's now three or four connection points instead of one isolated sentence - each one a separate path memory could later use to find its way back to the original fact."
+    }
+  ]
+}

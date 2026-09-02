@@ -17,5 +17,15 @@
   { "folder": "2026-08-27-active-vs-passive-learning" },
   { "folder": "2026-08-27-cognitive-load-and-bite-sized-learning" },
   { "folder": "2026-08-27-retrieval-practice-and-forgetting-curve" },
-  { "folder": "2026-08-27-desirable-difficulty" }
+  { "folder": "2026-08-27-desirable-difficulty" },
+  { "folder": "2026-08-27-temperature-and-sampling" },
+  { "folder": "2026-08-27-hallucination" },
+  { "folder": "2026-08-27-retrieval-augmented-generation" },
+  { "folder": "2026-08-27-fine-tuning-vs-prompting" },
+  { "folder": "2026-08-27-prompt-injection" },
+  { "folder": "2026-08-27-interleaving-vs-blocked-practice" },
+  { "folder": "2026-08-27-illusions-of-competence" },
+  { "folder": "2026-08-27-the-generation-effect" },
+  { "folder": "2026-08-27-elaborative-interrogation" },
+  { "folder": "2026-08-27-chunking-and-expertise" }
 ]

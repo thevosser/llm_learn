@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Learning the same fact two different ways:",
+  "options": [
+    {
+      "label": "Told the answer immediately",
+      "content": "You read the fact directly, with no attempt to produce it yourself first. It's fast and low-friction - but there was never a moment where memory had to actively reach for anything, which is precisely the step the generation effect says matters most."
+    },
+    {
+      "label": "Guess first, then shown the answer",
+      "content": "You attempt an answer first - even a wrong one - then immediately see the correct version. The guess, right or wrong, appears to prime memory for the correction in a way that just reading the fact cold doesn't. This only works because the correction actually arrives right after; a guess that's never corrected would just reinforce the wrong answer instead."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Question: \"What did I decide about the droplet vs. Managed Agents tradeoff in my notes?\"",
+  "options": [
+    {
+      "label": "Chat model alone",
+      "content": "The model has never seen your notes - they're not in its training data, full stop. It can only produce a plausible-sounding guess based on general patterns about that topic, delivered with the same fluent confidence as a correct answer would have. This is squarely hallucination-risk territory: a specific, personal detail the model has no real basis for knowing."
+    },
+    {
+      "label": "RAG (retrieved notes + chat model)",
+      "content": "Your question gets embedded, the nearest-matching chunk from your actual notes gets found and handed to the model as part of the prompt, and the model is asked to answer using that real text. The answer is now grounded in something real you actually wrote, not a guess - the model's job shifted from \"recall this from training\" (impossible) to \"read this and summarize it\" (exactly what it's good at)."
+    }
+  ]
+}
