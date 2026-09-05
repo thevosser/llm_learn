@@ -228,6 +228,86 @@
       "status": "covered",
       "requires": [],
       "_comment_added": "Added manually 2026-08-27 - cross-references tokenizer-playground deliberately."
+    },
+    {
+      "id": "automation-stress-and-cognitive-load",
+      "title": "Why juggling more AI tools/projects raises stress even when each one saves time",
+      "category": "ai-psychology",
+      "status": "open",
+      "requires": ["cognitive-load-and-bite-sized-learning"],
+      "_comment_added": "Added manually 2026-09-05 - new category, requested after noticing wearable stress data trending up with more concurrent AI projects."
+    },
+    {
+      "id": "trust-calibration-with-ai",
+      "title": "Trust calibration: knowing when to verify an AI's output vs. rely on it",
+      "category": "ai-psychology",
+      "status": "open",
+      "requires": [],
+      "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch."
+    },
+    {
+      "id": "automation-complacency-and-deskilling",
+      "title": "Automation complacency and skill atrophy: the risk of over-delegating to AI",
+      "category": "ai-psychology",
+      "status": "open",
+      "requires": [],
+      "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch."
+    },
+    {
+      "id": "human-ai-collaboration-patterns",
+      "title": "Human-AI collaboration patterns: pairing with an agent vs. delegating fully",
+      "category": "ai-psychology",
+      "status": "open",
+      "requires": ["agent-loops"],
+      "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch."
+    },
+    {
+      "id": "designing-boundaries-with-always-on-agents",
+      "title": "Designing boundaries with always-on agents: notifications, context switching, and recovery time",
+      "category": "ai-psychology",
+      "status": "open",
+      "requires": ["automation-stress-and-cognitive-load"],
+      "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch."
+    },
+    {
+      "id": "gpu-parallelism-basics",
+      "title": "GPU parallelism basics: why matrix multiplies scale across thousands of cores",
+      "category": "high-performance-computing",
+      "status": "open",
+      "requires": [],
+      "_comment_added": "Added manually 2026-09-05 - new category, requested to connect orchestration/HPC interest to a concrete project path."
+    },
+    {
+      "id": "data-vs-model-parallelism",
+      "title": "Data parallelism vs. model/pipeline parallelism in distributed training",
+      "category": "high-performance-computing",
+      "status": "open",
+      "requires": ["gpu-parallelism-basics"],
+      "_comment_added": "Added manually 2026-09-05, part of the high-performance-computing batch."
+    },
+    {
+      "id": "inference-batching-and-throughput",
+      "title": "Batching, throughput, and latency tradeoffs when serving LLMs at scale",
+      "category": "high-performance-computing",
+      "status": "open",
+      "requires": ["gpu-parallelism-basics"],
+      "_comment_added": "Added manually 2026-09-05, part of the high-performance-computing batch."
+    },
+    {
+      "id": "quantization-and-model-compression",
+      "title": "Quantization and model compression: trading precision for speed",
+      "category": "high-performance-computing",
+      "status": "open",
+      "requires": [],
+      "_comment_added": "Added manually 2026-09-05, part of the high-performance-computing batch."
+    },
+    {
+      "id": "orchestrating-agents-at-scale",
+      "title": "Orchestrating many agents concurrently: concurrency limits, rate limits, and cost as the real bottleneck",
+      "category": "high-performance-computing",
+      "status": "open",
+      "requires": ["multi-agent-orchestration", "inference-batching-and-throughput"],
+      "_comment_added": "Added manually 2026-09-05 - deliberately ties multi-agent-orchestration to HPC concepts as a hands-on project lesson (fan-out/fan-in over a worker pool)."
     }
   ],
 

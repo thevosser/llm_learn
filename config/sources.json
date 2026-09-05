@@ -20,7 +20,9 @@
     "cloud-infra",
     "dev-fundamentals",
     "agent-tooling",
-    "learning-science"
+    "learning-science",
+    "ai-psychology",
+    "high-performance-computing"
   ],
 
   "curation_notes": "When the question queue is empty, check the primary_ai_sources for anything genuinely new since the last run (a notable model release, a new technique getting real traction). Prefer filling an 'open' topic from tracker.json's topic list over inventing something totally new, unless something is clearly trending and worth adding as a new topic."
