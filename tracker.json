@@ -1,6 +1,5 @@
 {
   "_comment": "This file is the memory of the whole project. The curator agent reads this every day to decide what to teach next, and updates it after each lesson. Keep it simple: just lists of topics and their status.",
-
   "topics": [
     {
       "id": "cloud-providers",
@@ -30,14 +29,18 @@
       "title": "How LLM tool use / function calling works",
       "category": "llm-mechanics",
       "status": "covered",
-      "requires": ["embeddings-vs-chat"]
+      "requires": [
+        "embeddings-vs-chat"
+      ]
     },
     {
       "id": "agent-loops",
       "title": "How agent loops work (the LLM-in-a-while-loop pattern)",
       "category": "llm-mechanics",
       "status": "covered",
-      "requires": ["tool-use"]
+      "requires": [
+        "tool-use"
+      ]
     },
     {
       "id": "image-generation",
@@ -51,7 +54,9 @@
       "title": "Multi-agent orchestration patterns",
       "category": "llm-mechanics",
       "status": "covered",
-      "requires": ["agent-loops"]
+      "requires": [
+        "agent-loops"
+      ]
     },
     {
       "id": "prompt-engineering-basics",
@@ -90,7 +95,9 @@
       "title": "Hands-on: why a whitespace split undercounts real tokens",
       "category": "llm-mechanics",
       "status": "covered",
-      "requires": ["context-windows-tokens"],
+      "requires": [
+        "context-windows-tokens"
+      ],
       "_comment_added": "Added manually 2026-08-27 - the first type: code lesson, written specifically to test the Pyodide code-execution path for real."
     },
     {
@@ -170,7 +177,9 @@
       "title": "RAG: combining embeddings-based search with chat generation",
       "category": "llm-mechanics",
       "status": "covered",
-      "requires": ["embeddings-vs-chat"],
+      "requires": [
+        "embeddings-vs-chat"
+      ],
       "_comment_added": "Added manually 2026-08-27, part of a 10-lesson mixed llm-mechanics/learning-science batch."
     },
     {
@@ -233,15 +242,17 @@
       "id": "automation-stress-and-cognitive-load",
       "title": "Why juggling more AI tools/projects raises stress even when each one saves time",
       "category": "ai-psychology",
-      "status": "open",
-      "requires": ["cognitive-load-and-bite-sized-learning"],
+      "status": "covered",
+      "requires": [
+        "cognitive-load-and-bite-sized-learning"
+      ],
       "_comment_added": "Added manually 2026-09-05 - new category, requested after noticing wearable stress data trending up with more concurrent AI projects."
     },
     {
       "id": "trust-calibration-with-ai",
       "title": "Trust calibration: knowing when to verify an AI's output vs. rely on it",
       "category": "ai-psychology",
-      "status": "open",
+      "status": "covered",
       "requires": [],
       "suggested_exercise": "Friction log: next time an agent (Claude Code, Copilot, whichever) does something unexpected - refuses, loops, silently expands scope - stop and write one sentence: what you asked, what it did, and which category it falls into (technical constraint / effort-vs-value / scope creep). Do this 5 times across a week, then read them together. Look for a pattern tied to a specific tool (e.g. 'I keep hitting scope creep with Copilot specifically on multi-file changes') - that pattern is the lesson, not generic advice.",
       "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch. suggested_exercise pasted in from an earlier coaching chat on 2026-09-05 - the three categories (technical constraint / effort-vs-value / scope creep) were defined there, not in this repo, so the lesson write-up should (re)introduce them."
@@ -258,8 +269,10 @@
       "id": "human-ai-collaboration-patterns",
       "title": "Human-AI collaboration patterns: pairing with an agent vs. delegating fully",
       "category": "ai-psychology",
-      "status": "open",
-      "requires": ["agent-loops"],
+      "status": "covered",
+      "requires": [
+        "agent-loops"
+      ],
       "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch."
     },
     {
@@ -267,14 +280,16 @@
       "title": "Designing boundaries with always-on agents: notifications, context switching, and recovery time",
       "category": "ai-psychology",
       "status": "open",
-      "requires": ["automation-stress-and-cognitive-load"],
+      "requires": [
+        "automation-stress-and-cognitive-load"
+      ],
       "_comment_added": "Added manually 2026-09-05, part of the ai-psychology batch."
     },
     {
       "id": "gpu-parallelism-basics",
       "title": "GPU parallelism basics: why matrix multiplies scale across thousands of cores",
       "category": "high-performance-computing",
-      "status": "open",
+      "status": "covered",
       "requires": [],
       "_comment_added": "Added manually 2026-09-05 - new category, requested to connect orchestration/HPC interest to a concrete project path."
     },
@@ -283,7 +298,9 @@
       "title": "Data parallelism vs. model/pipeline parallelism in distributed training",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["gpu-parallelism-basics"],
+      "requires": [
+        "gpu-parallelism-basics"
+      ],
       "_comment_added": "Added manually 2026-09-05, part of the high-performance-computing batch."
     },
     {
@@ -291,14 +308,16 @@
       "title": "Batching, throughput, and latency tradeoffs when serving LLMs at scale",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["gpu-parallelism-basics"],
+      "requires": [
+        "gpu-parallelism-basics"
+      ],
       "_comment_added": "Added manually 2026-09-05, part of the high-performance-computing batch."
     },
     {
       "id": "quantization-and-model-compression",
       "title": "Quantization and model compression: trading precision for speed",
       "category": "high-performance-computing",
-      "status": "open",
+      "status": "covered",
       "requires": [],
       "_comment_added": "Added manually 2026-09-05, part of the high-performance-computing batch."
     },
@@ -307,7 +326,10 @@
       "title": "Orchestrating many agents concurrently: concurrency limits, rate limits, and cost as the real bottleneck",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["multi-agent-orchestration", "inference-batching-and-throughput"],
+      "requires": [
+        "multi-agent-orchestration",
+        "inference-batching-and-throughput"
+      ],
       "_comment_added": "Added manually 2026-09-05 - deliberately ties multi-agent-orchestration to HPC concepts as a hands-on project lesson (fan-out/fan-in over a worker pool)."
     },
     {
@@ -315,7 +337,9 @@
       "title": "Anthropomorphism and the 'it feels like a colleague' trap: why treating an agent as a teammate distorts trust",
       "category": "ai-psychology",
       "status": "open",
-      "requires": ["trust-calibration-with-ai"],
+      "requires": [
+        "trust-calibration-with-ai"
+      ],
       "_comment_added": "Added manually 2026-09-05, second ai-psychology batch (adjacent-topics follow-up)."
     },
     {
@@ -331,7 +355,9 @@
       "title": "Flow state vs. interruption-driven work: batch check-ins vs. mid-task pings from agents",
       "category": "ai-psychology",
       "status": "open",
-      "requires": ["designing-boundaries-with-always-on-agents"],
+      "requires": [
+        "designing-boundaries-with-always-on-agents"
+      ],
       "_comment_added": "Added manually 2026-09-05, second ai-psychology batch (adjacent-topics follow-up)."
     },
     {
@@ -355,7 +381,9 @@
       "title": "Caching and memoization at scale: KV-cache reuse and prompt caching as the cheapest performance win",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["gpu-parallelism-basics"],
+      "requires": [
+        "gpu-parallelism-basics"
+      ],
       "_comment_added": "Added manually 2026-09-05, second high-performance-computing batch (adjacent-topics follow-up)."
     },
     {
@@ -363,14 +391,16 @@
       "title": "Speculative decoding: a small fast model drafts, a big model verifies",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["inference-batching-and-throughput"],
+      "requires": [
+        "inference-batching-and-throughput"
+      ],
       "_comment_added": "Added manually 2026-09-05, second high-performance-computing batch (adjacent-topics follow-up)."
     },
     {
       "id": "cost-per-task-vs-cost-per-token",
       "title": "Cost-per-token vs. cost-per-task: the metric that should actually drive orchestration decisions",
       "category": "high-performance-computing",
-      "status": "open",
+      "status": "covered",
       "requires": [],
       "_comment_added": "Added manually 2026-09-05, second high-performance-computing batch (adjacent-topics follow-up)."
     },
@@ -379,7 +409,9 @@
       "title": "Backpressure and queueing theory basics for orchestrating agents at scale",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["orchestrating-agents-at-scale"],
+      "requires": [
+        "orchestrating-agents-at-scale"
+      ],
       "_comment_added": "Added manually 2026-09-05, second high-performance-computing batch (adjacent-topics follow-up)."
     },
     {
@@ -387,7 +419,9 @@
       "title": "Observability for distributed/agent systems: tracing a request across parallel workers",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["orchestrating-agents-at-scale"],
+      "requires": [
+        "orchestrating-agents-at-scale"
+      ],
       "_comment_added": "Added manually 2026-09-05, second high-performance-computing batch (adjacent-topics follow-up)."
     },
     {
@@ -395,7 +429,10 @@
       "title": "Designing the human control surface for an orchestration system: pause/resume/kill switches",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["orchestrating-agents-at-scale", "designing-boundaries-with-always-on-agents"],
+      "requires": [
+        "orchestrating-agents-at-scale",
+        "designing-boundaries-with-always-on-agents"
+      ],
       "_comment_added": "Added manually 2026-09-05 - bridges ai-psychology and high-performance-computing directly."
     },
     {
@@ -403,7 +440,10 @@
       "title": "Cost/latency dashboards as a stress-reduction tool: visibility replacing anxious checking",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["automation-stress-and-cognitive-load", "observability-for-distributed-agent-systems"],
+      "requires": [
+        "automation-stress-and-cognitive-load",
+        "observability-for-distributed-agent-systems"
+      ],
       "_comment_added": "Added manually 2026-09-05 - bridges ai-psychology and high-performance-computing directly."
     },
     {
@@ -411,15 +451,17 @@
       "title": "Capstone: reframe an existing project through a performance-computing lens",
       "category": "high-performance-computing",
       "status": "open",
-      "requires": ["orchestrating-agents-at-scale", "backpressure-and-queueing-theory"],
+      "requires": [
+        "orchestrating-agents-at-scale",
+        "backpressure-and-queueing-theory"
+      ],
       "suggested_exercise": "Take one piece of facebots or the learning platform's curation logic and ask: if this had to serve 1,000x the load, what would break first - latency, cost, rate limits, ordering guarantees? Sketch (on paper, 10 minutes, no code) how you'd introduce batching, caching, or a queue to fix it. No build required - the point is to see your own hobby project through a perf-computing lens.",
       "_comment_added": "Added manually 2026-09-05 - suggested_exercise pasted in from an earlier coaching chat. 'facebots' and 'the learning platform's curation logic' are Eric's own projects (the latter is this repo's curator/agent_instructions.md); no further detail on facebots is available in this repo, so the lesson write-up should let Eric supply the specifics of that project rather than assuming them."
     }
   ],
-
   "question_queue": [
     {
-      "_comment": "Eric adds questions here whenever they come to mind. The curator checks this FIRST each run — if there's a question here, it becomes that day's lesson instead of the background-source pick.",
+      "_comment": "Eric adds questions here whenever they come to mind. The curator checks this FIRST each run \u2014 if there's a question here, it becomes that day's lesson instead of the background-source pick.",
       "example": "Delete this example object. Real questions go here as: {\"question\": \"...\", \"added_on\": \"YYYY-MM-DD\"}"
     }
   ]

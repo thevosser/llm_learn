@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "A multi-file refactor starts renaming a shared helper in ways that will break two other files it hasn't touched yet. Which posture catches it, and when?",
+  "options": [
+    {
+      "label": "Pairing (watching each step)",
+      "content": "You see the rename happen on step 2 of 6, before the other files are touched. One correction, cheap to make, task continues cleanly. Cost: you spent attention on all 6 steps, not just this one."
+    },
+    {
+      "label": "Delegating (checking the final result)",
+      "content": "You find out on review, after all 6 steps ran - two files are now broken, and untangling which change depended on which requires reading the whole diff, not just the last step. Cost: much less attention while it ran, but a bigger cleanup once you look."
+    }
+  ]
+}

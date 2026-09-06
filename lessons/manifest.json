@@ -27,5 +27,11 @@
   { "folder": "2026-08-27-illusions-of-competence" },
   { "folder": "2026-08-27-the-generation-effect" },
   { "folder": "2026-08-27-elaborative-interrogation" },
-  { "folder": "2026-08-27-chunking-and-expertise" }
+  { "folder": "2026-08-27-chunking-and-expertise" },
+  { "folder": "2026-09-06-automation-stress-and-cognitive-load" },
+  { "folder": "2026-09-06-trust-calibration-with-ai" },
+  { "folder": "2026-09-06-human-ai-collaboration-patterns" },
+  { "folder": "2026-09-06-gpu-parallelism-basics" },
+  { "folder": "2026-09-06-quantization-and-model-compression" },
+  { "folder": "2026-09-06-cost-per-task-vs-cost-per-token" }
 ]

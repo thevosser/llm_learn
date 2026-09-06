@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "A pipeline step needs to extract structured data correctly. Two model choices for it - which is actually cheaper?",
+  "options": [
+    {
+      "label": "Cheap model, $0.10/1M tokens",
+      "content": "Lowest sticker price per call, but gets the format wrong about 1 in 3 times and needs a retry with a longer, more explicit prompt each time it fails. Averaged out, the real cost per successfully-completed task ends up higher once you count the failed attempts and the extra retry tokens."
+    },
+    {
+      "label": "Stronger model, $1.00/1M tokens",
+      "content": "10x the sticker price per call, but gets the format right on the first try nearly every time. No retries, no wasted tokens on failed attempts, no downstream step waiting on a redo. Real cost per successfully-completed task ends up lower than the \"cheap\" option, despite the higher per-token rate."
+    }
+  ]
+}

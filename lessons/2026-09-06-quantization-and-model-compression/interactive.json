@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same model, two ways to store its weights - what actually changes?",
+  "options": [
+    {
+      "label": "fp16 (16-bit, full precision)",
+      "content": "Largest memory footprint and slowest to move around, but every weight keeps its full precision. Safest choice when a task is sensitive to small errors compounding, or when you have GPU memory to spare."
+    },
+    {
+      "label": "int4 (4-bit, quantized)",
+      "content": "Roughly a quarter of the memory footprint and noticeably faster to load and multiply, because there's simply less data to move per weight. Output quality drops slightly - usually not perceptibly for most tasks, since errors from individually-rounded weights average out across millions of them - but the drop is real and grows if you push precision even lower."
+    }
+  ]
+}
