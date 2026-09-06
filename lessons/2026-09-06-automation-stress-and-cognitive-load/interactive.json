@@ -1,0 +1,22 @@
+{
+  "type": "steps",
+  "prompt": "Same total task (four independent fixes), split across a different number of agents running at once. Drag through 1, 2, 4, and 8 and notice what's actually growing:",
+  "steps": [
+    {
+      "label": "1 agent running",
+      "content": "You hold one thing in mind: what it's doing right now. When it finishes, you review one result. Working memory load: nearly all of it is the task itself."
+    },
+    {
+      "label": "2 agents running",
+      "content": "Now you're holding two states at once, plus which is which, plus noticing when either one finishes. The task content hasn't changed - the tracking overhead has doubled."
+    },
+    {
+      "label": "4 agents running",
+      "content": "You can no longer hold all four states precisely - you start checking in on a rotation instead of continuously tracking. That checking-in is itself a new task, running on top of the original four."
+    },
+    {
+      "label": "8 agents running",
+      "content": "Tracking overhead now exceeds what working memory can hold reliably. Something gets missed or double-checked unnecessarily - not because any single agent got harder, but because the coordination load crossed a limit that has nothing to do with the work itself."
+    }
+  ]
+}

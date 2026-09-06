@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "You ask an agent to \"clean up this function\" and it also renames three variables in a file you didn't mention. Which lens do you read that through?",
+  "options": [
+    {
+      "label": "\"It did something wrong\" (verify-everything lens)",
+      "content": "Every future request now gets the same suspicious full re-read, regardless of task size. You end up re-deriving the work yourself to check it, which erases most of the time delegating was supposed to save - and you still haven't learned anything about why it happened."
+    },
+    {
+      "label": "\"That's scope creep\" (categorized lens)",
+      "content": "You recognize the pattern: it treated \"clean up\" as license to touch anything nearby. Fix is narrow and specific - name the exact file and function next time - and future requests in that shape get exactly that boundary, while everything else stays at normal trust. One data point, correctly filed, instead of a permanent tax on every future request."
+    }
+  ]
+}

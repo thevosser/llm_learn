@@ -1,0 +1,22 @@
+{
+  "type": "steps",
+  "prompt": "The same 4096x4096 matrix multiply, run on a growing number of cores. Drag through and notice where the speedup comes from - and where it stops:",
+  "steps": [
+    {
+      "label": "1 core (CPU-style)",
+      "content": "One core computes every output entry, one dot product at a time, in sequence. Fast per-operation, but there are millions of independent entries to get through one by one."
+    },
+    {
+      "label": "256 cores",
+      "content": "The output matrix is split into 256 chunks, one per core, all computing simultaneously. Wall-clock time drops by roughly the same factor - the work was embarrassingly parallel, so splitting it barely costs anything extra."
+    },
+    {
+      "label": "10,000 cores",
+      "content": "Now each core has very little work - just a handful of dot products - so the time to actually compute drops close to zero. What's left is how fast data can be delivered to and from every core."
+    },
+    {
+      "label": "10,000 cores, memory-bound",
+      "content": "Compute is no longer the bottleneck - memory bandwidth is. Cores sit idle waiting for their next chunk of the matrix to arrive. Adding more cores from here doesn't help until the data pipeline feeding them gets faster too."
+    }
+  ]
+}
