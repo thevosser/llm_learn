@@ -457,6 +457,150 @@
       ],
       "suggested_exercise": "Take one piece of facebots or the learning platform's curation logic and ask: if this had to serve 1,000x the load, what would break first - latency, cost, rate limits, ordering guarantees? Sketch (on paper, 10 minutes, no code) how you'd introduce batching, caching, or a queue to fix it. No build required - the point is to see your own hobby project through a perf-computing lens.",
       "_comment_added": "Added manually 2026-09-05 - suggested_exercise pasted in from an earlier coaching chat. 'facebots' and 'the learning platform's curation logic' are Eric's own projects (the latter is this repo's curator/agent_instructions.md); no further detail on facebots is available in this repo, so the lesson write-up should let Eric supply the specifics of that project rather than assuming them."
+    },
+    {
+      "id": "nomic-embed-text-model",
+      "title": "nomic-embed-text: a local embedding model with task-specific prefixes",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["embeddings-vs-chat"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list. 'Embeddings' and 'RAG' from that list were skipped as topics here since embeddings-vs-chat and retrieval-augmented-generation already cover them - this batch builds on those instead of duplicating."
+    },
+    {
+      "id": "cosine-similarity",
+      "title": "Cosine similarity: comparing vectors by angle, not magnitude",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["embeddings-vs-chat"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "vector-search",
+      "title": "Vector search: finding the nearest stored vectors to a query",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["embeddings-vs-chat", "cosine-similarity"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "sqlite-vec",
+      "title": "sqlite-vec: a loadable SQLite extension for vector search",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["vector-search"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "document-chunking",
+      "title": "Document chunking: splitting text into focused pieces before embedding",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["retrieval-augmented-generation"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "metadata-filtered-retrieval",
+      "title": "Metadata-filtered retrieval: combining SQL filters with vector similarity",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["retrieval-augmented-generation", "sqlite-vec"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "citation-in-rag-answers",
+      "title": "Citation in RAG answers: naming which retrieved source supported the answer",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["retrieval-augmented-generation"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "retrieval-augmented-few-shot-prompting",
+      "title": "Retrieval-augmented few-shot prompting: retrieving examples, not facts",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["retrieval-augmented-generation"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "lora-vs-rag",
+      "title": "LoRA vs. RAG: permanently baked-in behavior vs. retrieved at query time",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["retrieval-augmented-generation", "fine-tuning-vs-prompting"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "random-vs-rag-retrieval",
+      "title": "Random selection vs. RAG retrieval: variety vs. relevance",
+      "category": "llm-mechanics",
+      "status": "covered",
+      "requires": ["retrieval-augmented-generation"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "structured-lookup-vs-vector-search",
+      "title": "Structured lookup vs. vector search: don't embed what you can just ask",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["vector-search"],
+      "_comment_added": "Added manually 2026-09-25 - new category (data-storage), from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "relational-databases",
+      "title": "Relational databases: rows, tables, and their concurrency limits",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": [],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "vector-databases",
+      "title": "Vector databases: approximate-nearest-neighbor indexing at scale",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["vector-search", "sqlite-vec"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "graph-databases",
+      "title": "Graph databases: relationships stored as first-class, pointer-linked objects",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["relational-databases"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "index-free-adjacency",
+      "title": "Index-free adjacency: the storage-engine technique behind graph databases",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["graph-databases"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "columnar-databases",
+      "title": "Columnar databases: optimized for scanning/aggregating, not fetching records",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["relational-databases"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "polyglot-persistence",
+      "title": "Polyglot persistence: different database types for different jobs",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["relational-databases", "vector-databases", "graph-databases", "columnar-databases"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
+    },
+    {
+      "id": "relational-algebra-vs-graph-query-languages",
+      "title": "Relational algebra vs. graph query languages",
+      "category": "data-storage",
+      "status": "covered",
+      "requires": ["graph-databases", "relational-databases"],
+      "_comment_added": "Added manually 2026-09-25, from a pasted RAG/embeddings topic list."
     }
   ],
   "question_queue": [

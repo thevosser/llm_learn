@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Question: \"Is there any path, of any length, connecting person A to person B through 'follows' relationships?\"",
+  "options": [
+    {
+      "label": "Relational algebra (SQL)",
+      "content": "Standard SQL has no clean way to express \"a path of unknown length\" - you'd need a recursive common table expression, carefully written to avoid infinite loops on cycles, which is noticeably more complex than the question itself feels like it should require. The awkwardness isn't a skill issue; unbounded path-following was never a native concept in relational algebra to begin with."
+    },
+    {
+      "label": "Graph query language (Cypher/GQL)",
+      "content": "MATCH path = (a:Person {id: 'A'})-[:FOLLOWS*]-(b:Person {id: 'B'}) RETURN path - the *]-'*' syntax for \"any number of hops\" is a native, built-in part of the language. The question maps almost directly onto the query, because variable-length path matching was a first-class concept in the language's design from the start, not something bolted on."
+    }
+  ]
+}

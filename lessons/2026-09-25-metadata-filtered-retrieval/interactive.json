@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "A table holding both internal engineering docs and public help-center articles. Customer question: \"how do I reset my password?\"",
+  "options": [
+    {
+      "label": "Vector search alone",
+      "content": "Finds the closest-matching vectors across the ENTIRE table, internal and public alike. If an internal engineering doc about the password-reset system's implementation happens to score as semantically close (it's about the same topic, after all), it's eligible to be returned right alongside the public help article - vector similarity alone has no concept of which documents a customer should actually see."
+    },
+    {
+      "label": "Vector search + metadata filter (doc_type = 'public')",
+      "content": "The SQL filter excludes every internal document before similarity ranking even runs on what's left. Only public help-center articles are eligible candidates at all - vector similarity is now deciding which of the ALLOWED documents is the best match, not deciding whether an internal doc should leak through because it happened to be topically close."
+    }
+  ]
+}

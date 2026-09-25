@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Finding the 3 nearest stored vectors to a query vector, stored in a plain SQLite table:",
+  "options": [
+    {
+      "label": "Without sqlite-vec",
+      "content": "Vectors are stored as serialized blobs in an ordinary column. Your application pulls every row back out of the database, deserializes each blob, and computes cosine similarity itself in a loop, then sorts the results in your own code. It works, but every part of the actual comparison logic lives outside SQL, in whatever language your app is written in."
+    },
+    {
+      "label": "With sqlite-vec",
+      "content": "Vectors live in a real vec0 virtual table. A single query - something like SELECT * FROM chunks WHERE embedding MATCH ? ORDER BY distance LIMIT 3 - does the entire nearest-neighbor search inside the database engine itself, right alongside ordinary WHERE clauses on other columns. No separate service, no custom comparison loop - just one more thing expressed in SQL."
+    }
+  ]
+}

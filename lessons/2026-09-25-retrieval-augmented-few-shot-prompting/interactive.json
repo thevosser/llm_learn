@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Generating a new post for a sarcastic bot persona, topic: \"the office coffee machine broke again\"",
+  "options": [
+    {
+      "label": "Static hardcoded few-shot examples",
+      "content": "The prompt always includes the same 3 example posts, chosen once and never revisited - maybe about weather, sports, and traffic. None of them are actually about workplace annoyances or broken equipment. The model still gets a sense of the persona's general tone from these, but none of the examples are close to today's actual topic."
+    },
+    {
+      "label": "Retrieval-augmented few-shot",
+      "content": "The topic gets embedded, and a library of this persona's past posts gets searched for the closest matches - surfacing 3 old posts specifically about broken equipment, office annoyances, or things not working. These retrieved examples are both stylistically AND topically close to today's situation, giving the model a much tighter template to work from than a fixed, topic-agnostic set ever could."
+    }
+  ]
+}

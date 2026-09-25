@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Two comparisons of vector pairs:",
+  "options": [
+    {
+      "label": "Same direction, very different length",
+      "content": "Vector A points at (1, 1); vector B points at (10, 10) - ten times longer, but pointing exactly the same way. Cosine similarity: 1.0 (identical). This matches intuition for embeddings: a short sentence and a much longer passage expressing the same idea should be able to score as highly similar, and cosine similarity delivers that by ignoring how far out each vector reaches."
+    },
+    {
+      "label": "Similar length, different direction",
+      "content": "Vector A points at (1, 1); vector C points at (1, -1) - nearly the same length, but at a right angle to A. Cosine similarity: 0.0 (unrelated). Raw distance between the two ENDPOINTS might look moderate here, but the angle - which is what cosine similarity actually measures - correctly flags these as pointing in unrelated directions, i.e. representing unrelated meaning."
+    }
+  ]
+}

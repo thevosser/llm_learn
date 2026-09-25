@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Question: \"Who is connected to person X through 3 hops of shared purchases?\"",
+  "options": [
+    {
+      "label": "Relational (joins)",
+      "content": "Requires chaining joins across orders and customers three times over, re-deriving each hop's connections from scratch by matching keys, every single time the question is run. Cost tends to grow steeply as the number of hops increases - each additional hop is another full join."
+    },
+    {
+      "label": "Graph (traversal)",
+      "content": "Start at X's node, follow its stored \"purchased with\" edges outward - one hop, then another, then another. The connections aren't being re-derived, they're already stored as direct links; the traversal is just following pointers that exist. Cost tends to scale far more gently with hop count, because each hop is a pointer-follow, not a fresh full-table join."
+    }
+  ]
+}

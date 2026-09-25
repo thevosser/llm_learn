@@ -1,0 +1,22 @@
+{
+  "type": "steps",
+  "prompt": "One system's storage choices, watched over time — each new database type added for a real reason, not preemptively:",
+  "steps": [
+    {
+      "label": "Launch: just relational",
+      "content": "Users, orders, products - all in one relational database. Every question the system needs to answer so far is a transactional record or a set-based aggregation, both of which relational handles well. No other database type is justified yet."
+    },
+    {
+      "label": "6 months in: vector search added",
+      "content": "A support-search feature needs to find relevant help articles by meaning, not just keyword match. This is a real, specific pain point relational search can't solve well - sqlite-vec gets added for exactly this one job, not adopted as a general-purpose replacement for anything else."
+    },
+    {
+      "label": "1 year in: the vector table outgrows sqlite-vec's linear scan",
+      "content": "The article library has grown into the millions of chunks, and exact linear scan is now measurably too slow for the search feature's latency requirements. A dedicated vector database with HNSW indexing replaces sqlite-vec for this one job - added because the pain became real, not because it seemed like the more sophisticated choice earlier."
+    },
+    {
+      "label": "18 months in: a social/relationship feature ships",
+      "content": "A new feature needs \"who's connected to whom, how many hops away\" - relational joins for this are already getting deep and slow. A graph database gets added specifically for this relationship-traversal workload, sitting alongside relational and vector, each handling the job it's actually good at."
+    }
+  ]
+}

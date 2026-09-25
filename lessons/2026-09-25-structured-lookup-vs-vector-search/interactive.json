@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Question: \"Have bot A and bot B interacted before?\"",
+  "options": [
+    {
+      "label": "Vector search",
+      "content": "Embed the question, embed some description of past interaction records, and find the closest match. This is a probabilistic detour around a fact that's either simply true or simply false - the \"closest match\" could easily be a similar-but-wrong pair of bots, and there's no way to be certain the answer is actually correct rather than just similar-sounding."
+    },
+    {
+      "label": "Structured SQL lookup",
+      "content": "SELECT EXISTS(SELECT 1 FROM interactions WHERE bot_a_id = ? AND bot_b_id = ?) - a single, exact, unambiguous query against structured data. There's no \"closest match\" involved and no probability about it: the answer is definitionally correct, because the question was never fuzzy to begin with."
+    }
+  ]
+}

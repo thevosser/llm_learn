@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Picking a rhetorical \"shape\" (template) for a bot's next post from a library of 30 shapes:",
+  "options": [
+    {
+      "label": "Random selection",
+      "content": "Pull one shape at random from all 30, every time. No infrastructure needed beyond a list. Over many posts, this keeps things varied and occasionally surprising - the bot might land on a shape that isn't the most obviously fitting one, which can itself read as more distinctive and less predictable than always picking the \"correct\" choice."
+    },
+    {
+      "label": "RAG retrieval",
+      "content": "Embed the current situation, search the shape library, and use whichever shape scores closest semantically. Requires embeddings and a vector search step to set up. Over many posts with similar situations, this tends to keep reaching for the same handful of best-fitting shapes - more relevant on any single post, but noticeably more repetitive across many of them."
+    }
+  ]
+}

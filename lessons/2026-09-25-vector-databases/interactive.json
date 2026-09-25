@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Finding the nearest match in a stored vector collection:",
+  "options": [
+    {
+      "label": "sqlite-vec (exact linear scan), 5,000 vectors",
+      "content": "Compares the query against every one of the 5,000 stored vectors and returns the mathematically exact closest match, guaranteed. At this scale the comparison is essentially instant - there's no real cost to checking everything, so there's no reason to trade away the guarantee of exactness."
+    },
+    {
+      "label": "Dedicated vector DB with HNSW indexing, 50,000,000 vectors",
+      "content": "Checking all 50 million vectors on every query would be far too slow. HNSW's pre-built graph structure lets the search jump toward the likely neighborhood of good matches and skip the overwhelming majority of vectors entirely - dramatically faster, at the cost of no longer guaranteeing the single mathematically exact closest match, just a very good one almost all the time."
+    }
+  ]
+}

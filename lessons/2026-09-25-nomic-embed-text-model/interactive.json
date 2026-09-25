@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Embedding the sentence \"the invoice is overdue\" two ways:",
+  "options": [
+    {
+      "label": "search_document: the invoice is overdue",
+      "content": "Embedded as something you're storing for later retrieval. This is the framing you'd use for every chunk you put into your vector table - the model was trained to treat text tagged this way as \"content that might get searched for later,\" and shapes the resulting vector accordingly."
+    },
+    {
+      "label": "search_query: the invoice is overdue",
+      "content": "The exact same words, embedded as a question you're about to search WITH. Because the model was trained to treat this prefix differently, the resulting vector isn't identical to the document-tagged version above - and mixing these up (embedding your stored documents with the query prefix, or vice versa) quietly degrades how well queries match the documents they should, without ever throwing an error."
+    }
+  ]
+}

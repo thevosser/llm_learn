@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Moving from node A to its connected node B, one hop:",
+  "options": [
+    {
+      "label": "With an index lookup",
+      "content": "The engine has to search an index (or scan a table) to find which row(s) reference A's ID as a match. Even a fast, well-tuned index is still performing a real lookup operation - and that same lookup cost repeats at every single additional hop in a longer traversal."
+    },
+    {
+      "label": "Index-free adjacency",
+      "content": "Node A already physically stores a direct pointer to node B - moving to B is just following that reference, no search involved at all. This is the same underlying idea as a linked list's `next` pointer: the connection was never something to be found, it was already sitting there the moment you arrived at A."
+    }
+  ]
+}

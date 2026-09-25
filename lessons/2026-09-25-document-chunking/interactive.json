@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "A document covering 5 unrelated topics (shipping policy, refund policy, warranty terms, account security, billing cycles) — query: \"how do refunds work?\"",
+  "options": [
+    {
+      "label": "Embedded as one whole document",
+      "content": "One vector has to represent all 5 topics at once - it ends up somewhere in the middle of all of them, strongly matching none. The query about refunds retrieves this entire document (correctly, technically) but the chat model now has to find the relevant paragraph itself, buried among 4 unrelated topics' worth of text."
+    },
+    {
+      "label": "Split into 5 per-topic chunks",
+      "content": "Each chunk gets its own vector representing just its one topic. The refund-policy chunk's vector sits close to the query's vector specifically because refunds are ALL that chunk is about - no blending with shipping or warranty text pulling it in other directions. Retrieval returns exactly the relevant paragraph, not a whole document to search through."
+    }
+  ]
+}

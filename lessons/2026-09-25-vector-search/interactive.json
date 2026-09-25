@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Query: \"canine training tips\" — searched against a document that only ever uses the word \"dog,\" never \"canine\":",
+  "options": [
+    {
+      "label": "Keyword search",
+      "content": "Looks for the literal string \"canine\" in the document text. It isn't there - the document only says \"dog\" - so this document doesn't match, no matter how relevant it actually is. Keyword search is exact and predictable, but only as good as the words you happen to guess."
+    },
+    {
+      "label": "Vector search",
+      "content": "The query gets embedded, the document (or its chunks) got embedded when it was stored, and \"canine\" and \"dog\" land in nearby points in that vector space because they mean similar things - even sharing zero letters. This document scores as highly relevant despite never containing the query's literal words, because vector search is comparing meaning, not spelling."
+    }
+  ]
+}

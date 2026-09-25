@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same retrieved document, same question — with and without a citation instruction:",
+  "options": [
+    {
+      "label": "No citation requirement",
+      "content": "\"Refunds are processed within 5-7 business days.\" - confident, plausible, and reads exactly the same whether it came straight from the retrieved document or drifted from the model's own training-data instincts partway through. There's no way to tell which happened just by reading the answer."
+    },
+    {
+      "label": "\"Cite which document supports each claim\"",
+      "content": "\"Refunds are processed within 5-7 business days (Source: refund-policy.md, chunk 2).\" Now the claim is checkable - open refund-policy.md, look at chunk 2, and confirm it actually says that. If the model's citation doesn't hold up, that's an immediate, visible signal something went wrong - a signal the uncited version never gave you."
+    }
+  ]
+}

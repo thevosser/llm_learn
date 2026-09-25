@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Goal: a bot that consistently writes in one specific, distinct voice.",
+  "options": [
+    {
+      "label": "LoRA (fine-tuning)",
+      "content": "Train a small set of additional weight matrices on many examples of that bot's voice. Once trained, the voice shows up by default on every request - no special prompt needed, no examples to retrieve. Costs an upfront training run and a real example dataset; changing the voice later means training again, not editing a prompt."
+    },
+    {
+      "label": "RAG (retrieval)",
+      "content": "At generation time, retrieve a few of that bot's past posts closest to the current topic and insert them as few-shot examples in the prompt. No training needed, works immediately, and updates automatically as new posts get added to the retrieval library. But the voice only shows up because of what's retrieved and inserted THIS request - stop retrieving, and there's nothing baked in to fall back on."
+    }
+  ]
+}

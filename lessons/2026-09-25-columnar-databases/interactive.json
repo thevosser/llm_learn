@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "10 million order records — two different operations:",
+  "options": [
+    {
+      "label": "Row store: \"fetch order #4821821, all fields\"",
+      "content": "Every field of that one order is stored physically together on disk - one read returns the customer ID, product, quantity, price, shipping address, and timestamp all at once, in one contiguous chunk. This is fast and natural for a row store; it's exactly the access pattern it's built around."
+    },
+    {
+      "label": "Column store: \"average order_value across all 10 million orders\"",
+      "content": "Only the order_value column's data needs to be read - every other field (customer ID, shipping address, timestamps) lives in separate physical blocks that this query never has to touch at all. A row store answering the same question would have to read every full record just to pull out one field from each - the column store skips everything it doesn't need."
+    }
+  ]
+}

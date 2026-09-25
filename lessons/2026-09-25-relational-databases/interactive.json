@@ -1,0 +1,14 @@
+{
+  "type": "toggle",
+  "prompt": "Same relational (orders/customers/products) schema, two different questions:",
+  "options": [
+    {
+      "label": "\"Total orders placed this month\"",
+      "content": "SELECT COUNT(*) FROM orders WHERE order_date >= '2026-09-01' - a single, fast, set-based aggregation across a table of rows. This is exactly the shape relational databases and SQL were built for, and they handle it extremely well even at large scale."
+    },
+    {
+      "label": "\"Customers connected to X, 3 purchases removed\"",
+      "content": "Requires joining orders to customers to products back to orders to customers again, three times over, each join adding real cost and query complexity. Every additional hop in the relationship chain means another join - relational databases don't store the connection itself, they re-derive it from scratch, via matching keys, every single time the question is asked."
+    }
+  ]
+}
